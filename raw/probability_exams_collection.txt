@@ -1,0 +1,1099 @@
+================================================================================
+              台大 機率 考古題彙整 (PTT NTU-Exam 精華區)
+================================================================================
+來源：PTT NTU-Exam 板精華區
+整理時間：2026-02-12
+說明：原始連結已失效(404)，以下內容均從 PTT 精華區取得對應試題。
+
+================================================================================
+【第1份】104下 劉長遠 機率 期中考
+================================================================================
+學期：104下 (2016春)
+授課教師：劉長遠 / 林守德
+課程名稱：機率
+開課系所：電資學院 資工系
+考試日期：2016/04/18
+考試時限：180分鐘 (14:20~17:20)
+
+                          Probability Midterm
+                              2016/4/18
+                             14:20~17:20
+                         Prof: Cheng-Yuan Liou
+
+***All work must be explained***
+***In grading the exam, considerably more weight will be given to the
+formulation of an expression (i.e. to setting up a fraction or setting up an
+integral) than to the evaluation of that expression (i.e. integral).***
+
+1. (10%) Mary and Tom park their cars in an empty parking lot that consists
+   of N parking spaces in a row. Assume that each possible pair of parking
+   locations is equally likely. Calculate the probability that the parking
+   spaces they select are at most 2 apart (that is, at most one empty space
+   between them).
+
+2. (10%) Out of the students in a class, 60% are geniuses, 70% love
+   chocolate, and 40% fall into both categories. Determine the probability
+   that a randomly selected student is neither a genius nor a chocolate lover.
+
+3. (40%) Assume that every gasoline filling station in Cambridge is open
+   each day for a single, continuous, two-hour period. The opening times,
+   t for all stations are identically distributed, mutually independent
+   random variables with the PDF:
+
+   ft(t0) = K,  6am <= t0 <= 10am
+           = 0,  otherwise
+
+   (a) (3%) Determine the numerical value of K.
+
+   (b) (7%) If Oscar visits a randomly selected station at 9:30 a.m., what is
+       the probability the station is open when he arrives?
+
+   (c) Each day, Oscar visits his first station at 9:30 am. If it is closed,
+       he tries another at 10:30 am. If the second station is also closed, he
+       tries a third station at 11:30 am. If all three tries fail, he gives up
+       for the day. (He needs one hour to go from any station to any other
+       one. Note that, by 12:30 pm no stations are open.)
+
+       (1) (10%) What is the probability Oscar was able to purchase gasoline
+           on the first day he tried to do so?
+
+       (2) (5%) Given that Oscar was able to purchase gasoline today, what is
+           the probability he visited a total of exactly two gas stations
+           today?
+
+       (3) (10%) Given that Oscar bought gasoline at 11:30 am today,
+           determine the conditional expected value and the conditional
+           variance for today's opening time at the particular station at
+           which he bought gasoline.
+
+       (4) (5%) Let x be the number of days up to and including the first day
+           on which Oscar is successful in his attempt to purchase gasoline.
+           Determine the PMF Px(x0)
+
+4. (15%) The compound PDF for random variables x and y is:
+
+   f_{x,y}(x0, y0) = A*x0,  if x0 >= 0 and y0 >= 0 and x0 + y0 <= 1
+                    = 0,      otherwise
+
+   Let g = xy. Derive PDF f_g(g0).
+
+5. (15%) Random variables x and y are independent and are described by
+   the PMFs:
+
+   Px(x0): P(x=0) = 1/2, P(x=1) = 1/2
+   Py(y0): P(y=1) = 1/3, P(y=7) = 2/3
+
+   Let x1, x2, ... be independent experimental values of x.
+   Let y1, y2, ... be independent experimental values of y.
+   Consider the following facts of these random variables:
+
+      mu = x1 + x2 + x3 + x4 + y1 + y2 + y3
+      gamma = 4*x1 + 3*y1
+
+   (a) (5%) How do you think the variance of mu and gamma will compare?
+
+   (b) (10%) Determine the Z-transforms and variances for random variables
+       mu and gamma.
+
+6. (10%) The country hospital is located at the center of a square whose
+   sides are 3 miles wide. If an accident occurs within this square, then
+   the hospital sends out an ambulance. The road network is rectangular,
+   so the travel distance from the hospital whose coordinates are (0,0) to
+   the point (x,y) is |x|+|y|. If an accident occurs at a point that is
+   uniformly distributed in the square, find the expected travel distance of
+   the ambulance.
+
+
+================================================================================
+【第2份】103下 陳宏 機率導論 期末考
+================================================================================
+學期：103下 (2015春)
+授課教師：陳宏
+課程名稱：機率導論
+開課系所：理學院 數學系 (大二必修)
+考試日期：2015/06/23
+考試時限：110分鐘
+
+1. (40 points) Suppose that X is uniformly distributed on the interval [0, 1]
+   and that, given X = x, Y is uniformly distributed on the interval [1-x, 1].
+
+   (a) (15 points) Determine the joint density f(x, y). (Be sure to specify
+       the range.)
+
+   (b) (10 points) Find the probability P(X >= 1/2, Y >= 1/2). (As usual,
+       you can leave your answer in raw form, such as 1 - 1/e.)
+
+   (c) (15 points) Find the conditional density f_{X|Y}(x|1/3) of X given
+       Y = 1/3. Be sure to specify the range.
+
+2. (40 points) Suppose X1 and X2 are independent random variables, each having
+   density
+                f(x) = 3x^{-4},  for 1 < x < infinity
+                      = 0,        otherwise
+
+   (a) (20 points) Let Z = max(X1, X2) denote the larger (maximum) of the two
+       random variables. Find the p.d.f (density) of Z.
+
+   (b) (20 points) Let Y = X2/X1. For y >= 1, find P(Y >= y).
+
+3. (40 points) Suppose that X and Y are independent random variables with
+   moment generating functions M_X(t) = (1 - 2t)^{-2} and
+   M_Y(t) = (1 - 2t)^{-3}. Find Var(X + Y).
+
+4. (40 points) Show that if N1(t) and N2(t) are independent Poisson processes
+   with rate lambda1 and lambda2, then N(t) = N1(t) + N2(t) is a Poisson
+   process with rate lambda1 + lambda2.
+
+   (Hint: There are two possible approaches to this problem. The first
+   approach is to find P[N(t) = n], the probability mass function of the
+   Poisson process, and the second approach is to check on the requirements
+   of a Poisson process for N(t).)
+
+5. (40 points) Suppose that in a certain very volatile industry, failures
+   among companies occur at the rate of 2.5 per year. Assuming the occurrence
+   of such business failures to be a Poisson process.
+
+   (a) (20 points) Find the probability that 4 or more failures will occur
+       next year.
+
+   (b) (20 points) Find the probability that the next two failures will occur
+       within three months of each other.
+
+6. (45 points) A non-negative random variable X has mean 100 and variance 100.
+
+   (a) (15 points) What does Markov's inequality say about P(X >= 400)?
+
+   (b) (15 points) What does Chebyshev's inequality say about P(X >= 400)?
+
+   (c) (15 points) Let Sn be the sum of n independent variables, each with
+       the same distribution as X. Find a sequence xn so that
+       P(Sn/n > 100 + xn) converges to 1/4 as n -> infinity.
+
+7. (60 points) (Coupon Collector Problem) Sample from n cards, with
+   replacement, indefinitely, and let N be the number of cards you need to
+   get each of n different cards are represented.
+
+   (a) (30 points) Let Ni be the number of coupons needed to get i different
+       coupons after having i-1 different ones. Determine E(Ni) and Var(Ni).
+
+   (b) (30 points) Write N in terms of N1, ..., Nn. Find a sequence an such
+       that as n -> infinity, N/an converges to 1 in probability.
+
+8. (55 points) (Random Incidence Paradox) Consider observing successive buses
+   on an urban bus line as they arrive at and depart from the same bus stop.
+   Suppose that 8 of 9 waits between successive buses are 1 minute (short
+   gap), but that 1 in 9 each intervals equals 10 minutes (long gap).
+
+   (a) (10 points) What is the probability that this passenger faces a long
+       wait of 10 minutes for the next bus?
+
+   Suppose that a second would-be passenger arrives at the same bus stop, but
+   at a time that is random with respect to bus arrivals.
+
+   (b) (15 points) It states that the probability that this passenger faces
+       a long wait of 10 minutes for the next bus is calculated as follows:
+
+           (1/9)*10 / ((1/9)*10 + (8/9)*1) = 5/9
+
+       Please explain why the above calculation is correct.
+
+   (c) (10 points) Consider the first passenger who just missed the bus.
+       Calculate his or her expected waiting time.
+
+   (d) (20 points) Determine the average waiting time of the second passenger.
+
+
+================================================================================
+【第3份】103下 陳宏 機率導論 第四次小考
+================================================================================
+學期：103下 (2015春)
+授課教師：陳宏
+課程名稱：機率導論
+開課系所：理學院 數學系 (大二必修)
+考試日期：2015/06/18
+考試時限：60分鐘
+
+Notation: P_{ij}^{(n)} = P(X_n = j | X_0 = i)
+
+1. (20%) Three white and three black balls are distributed in two urns in
+   such way that each contains three balls. We say that the system is in
+   state i, i = 0, 1, 2, 3, if the first urn contains i white balls. At each
+   step, we draw one ball from each urn and place the ball drawn from the
+   first urn into the second urn, and conversely with the ball from the
+   second urn. Let Xn denote the state of the system after the n-th step.
+   Explain why {Xn, n = 0, 1, 2, ...} is a Markov chain and calculate its
+   transition probability matrix.
+
+2. Consider a Markov chain with state space {A, B, C, D, E} and has
+   transition matrix given by:
+
+                A      B      C      D      E
+        A      0.1    0.6    0.3     0      0
+        B       0     0.2    0.3    0.5     0
+        C       0     0.3    0.2    0.3    0.2
+        D       0      0      0      0      1
+        E       0      0      0      1      0
+
+   (a) (10%) Calculate P_{CA}^{(2)} and P_{DE}^{(n)} for n in N.
+
+   (b) (10%) What are the irreducible classes in this Markov chain?
+
+   (c) (10%) Identify the recurrent and transient states.
+
+3. (a) (10%) Let Ny = #{n >= 0, Xn = y} be the number of times that the
+       process is in state y. Show that
+       E[Ny | X0 = y] = sum_{n=0}^{infinity} P_{yy}^{(n)}.
+
+   (b) (10%) Explain why a state y is recurrent if and only if
+       sum_{n=0}^{infinity} P_{yy}^{(n)} = infinity.
+
+   (c) (20%) (A Random Walk) Consider a Markov chain whose state space
+       consists of the integers i = 0, +/-1, +/-2, ..., and has transition
+       probabilities given by:
+
+       P_{i, i+1} = p,    P_{i, i-1} = 1-p,    i = 0, +/-1, +/-2, ...
+
+       where 0 < p < 1. In other words, on each transition the process either
+       moves one step to the right (with probability p) or one step to the
+       left (with probability 1-p). Determine whether the state 0 is
+       recurrent or transient. (Note that it depends on the values of p.)
+
+4. An individual has three umbrellas, some at her office, and some at home.
+   If she is leaving home in the morning (or leaving work at night) and it is
+   raining, she will take an umbrella, if one is there. Otherwise, she gets
+   wet. Assume that independent of the past, it rains on each trip with
+   probability 0.2. To formulate a Markov chain, let Xn be the number of
+   umbrellas at her current location.
+
+   (a) (15%) Find the transition probability for this Markov chain.
+
+   (b) (15%) Calculate the limiting fraction of time she gets wet.
+
+
+================================================================================
+【第4份】103下 劉長遠 機率 期末考
+================================================================================
+學期：103下 (2015春)
+授課教師：劉長遠
+課程名稱：機率
+開課系所：電資學院 資訊工程系
+考試日期：2015/06/22
+考試時限：180分鐘
+
+1. Poisson Process
+
+  1. (15 pts) Customers arrive to a restaurant according to a Poisson process
+     with rate 10 customers/hour. The restaurant opens daily at 11:00 am.
+     Find the following:
+
+     (a) What is the probability that there are 15 customers in the restaurant
+         at 1:00pm, given that there were 12 customers in the restaurant at
+         12:50pm.
+
+     (b) Given that a new customer arrived at 11:13am, what is the expected
+         arrival time of the next customer?
+
+     (c) If a customer arrive to restaurant at 2:00pm, what is the probability
+         that the next four customers will arrive before 3:00pm?
+
+  2. (10 pts) Transmitters A sends messages to a receiver in a Poisson process
+     with average message arrival rates of lambda_A. All messages are so brief
+     that we may safely assume that they occupy only single points in time. The
+     number of words in every message, regardless of its transmitting source,
+     may be considered to be an independent experimental value of random
+     variable W with PMF:
+         p_w(1) = 1/3, p_w(2) = 1/2, p_w(3) = 1/6 and p_w(w) = 0 otherwise.
+
+     (a) Determine the PDF for T, the time from t = 0 until the receiver has
+         received exactly eight three-word messages from transmitter A.
+
+     (b) Independent of what happens to all other words, a transmitter damages
+         any particular word it sends with probability 10^{-3}. What is the
+         probability that any particular damaged word is part of a three-word
+         message?
+
+2. Markov Chain Property
+
+  1. (25 pts) Days are either good(G), fair(F), or sad(S). Let Fn, for
+     instance, be the event that the nth day is fair. Assume that the
+     probability of having a good, fair, or sad day depends only on the
+     condition of the previous day as dictated by the conditional probabilities:
+
+     P(F_{n+1} | G_n) = 1/3,  P(F_{n+1} | S_n) = 3/8,  P(S_{n+1} | F_n) = 1/6
+     P(F_{n+1} | F_n) = 2/3,  P(S_{n+1} | G_n) = 1/6,  P(S_{n+1} | S_n) = 1/2
+
+     Assume that the process is in the steady state. A good day is worth $1,
+     a fair day is worth $0, and a sad day is worth $-1.
+
+     (a) Use G, F, S to denote respectively the states good, fair, and sad.
+         Please draw the Markov Chain for this problem.
+
+     (b) Determine the expected value of a randomly selected day.
+
+     (c) With the process in the steady-state at day zero, we are told that
+         the sum value of days 13 and 14 was $0. What is the probability
+         that day 13 was a fair day?
+
+3. Gaussian Distribution
+
+  1. (15 pts) Your company is producing special battery packs for the most
+     popular toy during the holiday season. The life span of the battery pack
+     is known to be normally distributed with a mean of 250 hours and a
+     standard deviation of 20 hours.
+
+     (a) What percentage of battery packs lasts longer than 260 hours?
+
+     (b) If a simple random sample of four battery packs is selected from your
+         company, what is the probability that the average of these four packs
+         is longer than 260 hours?
+
+  2. (10 pts) An insurance company sells $10,000 car insurance policies with
+     a one year term for a premium of $400. If the insured involves in a car
+     accident within one year of the start of the policy, the insurance company
+     has to pay $10,000 to the policy's beneficiary. The probability of a
+     person getting into a car accident within one year is 1/10. If the company
+     sells 100 such policies in one year, what is the probability that the
+     company loses money at the end of the year after paying out any amounts
+     it has to pay out?
+
+4. Statistics
+
+  1. (10 pts) We are sure that the individual grades in a class are normally
+     distributed about a standard deviation sigma of 20 and have mean mu equal
+     to either 70 or 80. Consider a hypothesis test of the null hypothesis
+     H_0(mu = 80) with a statistic which is the experimental value of a single
+     grade. We wish to test H_0 at the 0.01 level of significance.
+
+     (a) Which one is more appropriate to use, right-sided, left-sided, or
+         two-sided test? Briefly explain your answer.
+
+     (b) Determine the conditional probability of false acceptance of H_0.
+
+     (c) Determine the conditional probability of false rejection of H_0.
+
+  2. (8 pts) The Geometric distribution with probability P has pdf:
+     f(x) = (1-P)^{x-1} * P,  x = 1, 2, 3, ...
+
+     Suppose the data 5, 2, and 3 were drawn independently from such a
+     distribution. Find the maximum likelihood estimate (MLE) of P.
+
+  3. (7 pts) The pdf of the population distribution is:
+     f(x) = (1 + ax)/2,   -1 <= x <= 1,  where -1 <= a <= 1
+           = 0,            otherwise
+
+     and the estimator for a is given by a* = 3*X_bar
+     (where X_bar is the sample mean of X1, ..., Xn)
+
+     Is a* a biased estimator for a?
+     [Hint: E(X_bar) = (1/n)*(E(X1) + E(X2) + ... + E(Xn)) = E(X)]
+
+   ※ 注：考卷上有附 normal distribution table
+
+
+================================================================================
+【第5份】102下 林守德 機率 期中考
+================================================================================
+學期：102下 (2014春)
+授課教師：林守德
+課程名稱：機率
+開課系所：電機資訊學院 資訊工程學系
+考試日期：2014/04/14
+考試時限：180分鐘
+總分：120分
+可用中文或英文作答
+
+1. [Independency]
+   X, Y, and Z are three random variables. Can you propose a real-world
+   example of them that satisfy the following conditions:
+   (a) X and Y are independent, but becomes dependent given Z (5pts)
+   (b) X and Y are dependent, but becomes independent given Z (5pts)
+
+2. [Application on Probability]
+   There is a group of n students who occupied the Legislative Yuan (LY). The
+   observation is that: at each minute, there is 1/2 chance one student will
+   leave LY (i.e. n=n-1), and 1/2 chance one student enters LY (i.e. n=n+1).
+   The police make a deal with the leader: If they reach 2n students before
+   everybody leaves LY (n=0), then the leader will not be arrested. However,
+   if the number reaches 0 before it becomes 2n, then the leader will be
+   arrested immediately.
+   (a) Given t minutes passed, what is the chance that the leader has already
+       been arrested? (12pts, if you cannot derive the closed form solution,
+       please describe how to generate this probability)
+   (b) If t >> n, what is the answer for this question? (5pts)
+
+3. [Probability and Conditional Probability]
+   (a) In a modified Monty Hall Problem, assuming there are n doors and behind
+       n-k of them are goats, while the remaining k (k << n) is a car. After
+       a participant picks a door, the host (who knows where the cars are)
+       will intentionally open a door with goat. In this case, should the
+       participant swap his current choice with one of the remaining door?
+       (5pts)
+
+   (b) If the host does not know where are the car, and he opens a door with
+       a goat. Should the participant swap? (5pts)
+
+   Please explain your answers using probability.
+
+4. [Probability and Expectation]
+   A grocery store has available n watermelons to sell and makes $1.00 on each
+   sale. Say the number of consumers of these watermelons is a random variable
+   that has a distribution that can be approximated by
+
+       f(x) = 1/200,   0 < x < 200,
+
+   a p.d.f. of the continuous type. If the grocer does not have enough
+   watermelons to sell to all consumers, she figures that she loses $5.00 for
+   each unhappy customer. But if she has surplus watermelons, she loses 50
+   cents on each extra watermelon. What should n be to maximize "profit"?
+   (10pts)
+
+5. [Random Experiment]
+   You are asked to design a random experiment to estimate the circumference
+   ratio pi. The only function you can use is the random-value-generator
+   random(), which returns a value between [0,1]. Please describe your
+   experiment (you can use pseudo code or simply explain it in plain text).
+   (10pts, Note that you can use while, if, and +-*/ in the pseudo code)
+
+6. [Bayes Rule]
+   Company1 announces a disease (occur rate = 20%) testing product T1. The
+   performance looks like:
+       P(T1 = positive | Disease = true)  = 0.7
+       P(T1 = negative | Disease = false) = 0.7
+
+   Company2 also announces a testing product T2 for the same disease. The
+   performance looks like:
+       P(T2 = positive | Disease = true)  = 0.9
+       P(T2 = negative | Disease = false) = 0.6
+
+   Q1: A careless doctor performs a test on a patient and found that the
+       result is positive. However, this doctor forgot which testing product
+       was chosen. Can you tell this doctor which product is more likely to
+       be the one used given positive result? (5pts)
+
+   Q2: If a patient has been tested positive on both products, what is the
+       probability that he/she really has the disease (assuming that the test
+       results are conditionally independent given disease)? (5pts)
+
+7. [Exponential Distribution]
+   Let X be a random variable that represents the number of days that it takes
+   a high-risk driver to have an accident. Assume that X has an exponential
+   distribution. If P(X<50) = 0.25, compute P(X>100 | X>50). (5pts)
+
+8. [Poisson]
+   Given the following random experiments, please comment whether each of them
+   is likely to produce a random variable that follows a Poisson distribution,
+   and explain why:
+   (a) Observing the number of people entering CSIE R104 front door from
+       14:20-15:00 every Monday
+   (b) Observing the number of cars passing the guard booth on Chang-Xing
+       Street every Monday from 10-11am
+   (c) Observing the number of cars passing the intersection of Xinsheng
+       South Road and Zhongxiao East Road at 5-6pm every Monday
+   (9pts)
+
+9. Amy wants to buy the May-Day concert ticket online. Since it is really hard
+   to get one, she used five computers (C1~C5) in parallel to ensure she can
+   get it. But there are different successful rates for each computer to get
+   the ticket. The successful rate of Ci computer is:
+       P(i+1) = 1.05*P(i) - 0.05
+   A 'round' is defined as one trial for every computer. A random variable X
+   is defined as the number of rounds required to get one ticket. We know the
+   variance of X is 2. So what's P(1)? (7pts)
+
+10. In the movie theater there are 300 seats. 300 people including Jack lined
+    up to enter the theater. Jack is the 200th person to enter the theater, but
+    when it's his turn, he found that his seat number faded so he has no idea
+    where to seat. Jack decides to randomly pick a seat because everyone was
+    so nice that if their seat is taken, they will simply find other seat
+    randomly. What's the probability of the last person to seat in his/her own
+    seat correctly? (10pts)
+
+11. One day Takashi found that around him there were four zombies. He picked up
+    the gun to kill them. Since it becomes easier to kill a zombie if there are
+    more around, the probability for Takashi to kill the zombie is n/5 (n is
+    the number of zombies) and he can only kill one zombie at a time. When a
+    zombie is killed, the zombie will have 30% chance to be revived by their
+    friend. That says, if there is only one zombie left, it won't rebirth.
+    What's the expected time Takashi needed to kill all the zombies? (10pts)
+
+12. In the MMORPG world, Shiroe and his partners want to meet with the king.
+    They started at "A" and are allowed to choose only three directions (right,
+    up, down), with probability P(right) = 1/2, P(up) = P(down) = 1/4.
+    However, if he can't go up or down, the probability becomes P(right) = 1/2,
+    P(up or down) = 1/2. In the graph there are many traps in each area,
+    denoted as 'X'. Entering 'X' means game over. One special place is the
+    rest area, there they can choose to start at "B", "C" or "D". Assuming
+    Shiroe took SD's probability course previously and can make the best
+    decision, what's the probability that Shiroe meets the king safely? (12pts)
+
+    +---+---+---+------+---+---+---+------+
+    | O | O | O |      | B | O | O |      |
+    +---+---+---+      +---+---+---+      |
+    | A | O | X | Rest | C | O | X | King |
+    +---+---+---+      +---+---+---+      |
+    | O | O | O |      | D | O | O |      |
+    +---+---+---+------+---+---+---+------+
+
+附表：
+  Poisson distribution: f(x) = lambda^x * e^{-lambda} / x!
+  mu = lambda, sigma^2 = lambda
+  Variance of geometric distribution: (1-p)/p^2
+  Exponential Distribution: f(x) = lambda * e^{-lambda*x},
+      let theta = 1/lambda, mu = theta, sigma^2 = theta^2
+
+
+================================================================================
+【第6份】102下 林守德 機率 期末考
+================================================================================
+學期：102下 (2014春)
+授課教師：林守德
+課程名稱：機率
+開課系所：電機資訊 資訊工程
+考試日期：2014/06/16
+考試時限：180分鐘
+總分：120分（可用中文或英文作答）
+
+Note: please use Phi function as the CDF of standard normal distribution.
+Phi(2) = 98%, Phi(1.65) = 95%.
+Variance of Binomial distribution: np(1-p)
+KL divergence: D_KL(P||Q) = sum_i ln(P(i)/Q(i)) * P(i)
+
+1. Short Answer:
+   (a) What are PageRank and TFIDF? Why we need both of them to build a good
+       information retrieval model? (5 pts)
+   (b) Describe Central Limit Theorem (5 pts)
+   (c) Describe p-value (5 pts)
+   (d) Is KL-divergence a good 'distance' measure? If not, how to fix it?
+       (5 pts)
+
+2. 某次期末考有一百題「四選項」選擇題，一位學生發現他對每一個題目確定正確解答的
+   機率只有0.6，如果他不確定的話，就任意猜一個答案。請問他答對超過80題的機率大
+   約是多少? (8 pts)
+
+3. Let X be a uniform random variable on [0,1] and conditional on X=x let Y
+   be an exponential with parameter theta = 1/x.
+   (a) Find the joint density of X and Y (5 pts)
+   (b) Find E[Y] (5 pts)
+
+4. 某種燈泡已知壽命100小時，standard deviation 30小時。颱風天來了，假設現在我們
+   要庫存一些燈泡，用以確保有98%以上的機率已有的燈泡連續點上可以發光至少2000小
+   時，那我們必須庫存至少多少燈泡？ (8pts)
+
+5. Let {X1, X2, ..., Xn} be a sequence of Gamma random variables with
+   parameter alpha_1, alpha_2, ..., alpha_n and identical theta. Find the
+   distribution function of sum_i Xi.
+   (Hint: the mgf of Gamma(alpha, theta) is (1 - theta*t)^{-alpha}) (8 pts)
+
+6. A statistics department at a large university maintains a tutoring service
+   for students. The hypothesis is that 40% of the students using the service
+   would be from business department, 30% from engineering department, 20%
+   from social science department and 10% from agriculture. A random sample of
+   120 students revealed that 52, 38, 21, 9 students from each department,
+   respectively. Using Chi-square test to check whether the sampling results
+   follow the hypothesis with alpha = 0.05. (8 pts)
+
+7. You want to build an automatic process to correct "Chinese sentences"
+   (中式英文) with misused verb. For example, you want the system to
+   automatically correct 'I opened the light' to 'I turn on the light'. You
+   are given a large set of English sentences written by native-Chinese
+   writers, and a large set of sentences from native English speakers. Please
+   describe how you use n-gram language model and noisy channel model to
+   resolve this problem. (10 pts)
+
+8. If X1, ..., Xn are iid and uniformly distributed between [theta_l, theta_u],
+   please find the maximum likelihood estimation of theta_l and theta_u. (8 pts)
+
+9. A coin (whose head-rate is p) is flipped until the first head occurs. Let X
+   denote the number of flips required.
+   (a) Find the entropy H(X). (5 pts)
+   (b) Let Y denote the number of flips until the second head appears. Thus,
+       for example, Y=5 if the second head appears on the 5th flip.
+       Is H(Y) larger, smaller, or equal to 2H(X)? Explain your solution.
+       (5 pts)
+
+10. 大咩(Big Mia)、咩青(Mia Green)、小羊(Little Sheep)一起去一家有名的饅頭店：
+    咩咩饅頭店。咩咩饅頭店有賣兩種饅頭，巧克力饅頭和草莓饅頭。巧克力饅頭每十分
+    鐘出爐一次，草莓饅頭每八分鐘出爐一次。大咩、咩青、小羊到的時候剛好饅頭都賣
+    完了，只能等下一次的出爐。
+    小羊："草莓！草莓！我要吃草莓饅頭（興奮）。"
+    咩青："我要吃巧克力饅頭"。
+    大咩看了一下時間，發現等一下就要上機率課了，於是說："我們還得趕去上機率課
+    才行，下一個出爐是哪個饅頭，我們就全部吃那個饅頭好了！！"
+    小羊和咩青："好吧~~"
+    問：已知草莓饅頭和巧克力饅頭出爐的時間是互相獨立的。
+    小羊成功吃到草莓饅頭的機率是多少？ (10 pts)
+
+11. 在資工系舉辦了一個來測驗同學們 coding 能力的競賽，而最後進到決賽的有學生A
+    和學生B，在決賽有著神奇的機器可以來測量學生的 "C Power"，就如同七龍珠的戰鬥
+    力探測器一般。已知學生A每分鐘可以產生100單位的 "C Power"，而變異數為24；學生
+    B則是每分鐘可以產生80單位的 "C Power"，變異數為40。而在比賽剩最後10分鐘時，
+    學生B暫時以40單位領先，請問到比賽結束結果是B產生較多的 "C Power" 的機率為何？
+    (10pts)
+
+12. 在獵人試煉中，小傑和他的夥伴到達了最後一關。尼特羅會長（主考官）要求各位交
+    出自己的分數公式。而要成為一個頂尖的獵人，最重要的就是體力和智力。小傑的體力
+    是200（全部人的平均是150，變異數是40），智力為100（全部人的平均是130，變異數
+    是30），而我們知道體力和智力是獨立的，所以小傑交出了公式為
+    Grade = 0.75 * Energy + 0.25 * Intelligence。
+    請問 covariance(Energy, Grade) 為多少？ (10pts)
+
+附表：Chi-square table (略，考卷有附)
+
+
+================================================================================
+【第7份】102下 劉長遠 機率 期末考
+================================================================================
+學期：102下 (2014春)
+授課教師：劉長遠
+課程名稱：機率
+開課系所：電資學院 資訊系
+考試日期：2014/06/19 (103/6/19)
+考試時限：14:20 ~ 17:20
+
+1. Markov Chain Property
+
+   We are observing and recording the weather in a special place every day.
+   The possible weather types in the place are sunny, cloudy, and rainy. The
+   probability of each weather type is dependent of weather type from previous
+   day which may be modelled as Markov chain. The probability that weather type
+   in one day is different from the type in previous day is equal to P for each
+   different type. However, the weather prediction cannot perfectly be modelled
+   by the assumed Markov model, so the probability that the true weather in one
+   day is not the predicted weather type is equal to F for each weather type
+   other than predicted one, which is independent of all previous and future
+   errors. We use the notation:
+
+   s_n: Observed sunny day in n-th day.
+   c_n: Observed cloudy day in n-th day.
+   r_n: Observed rainy day in n-th day.
+   S_n: Predicted sunny day in n-th day.
+   C_n: Predicted cloudy day in n-th day.
+   R_n: Predicted rainy day in n-th day.
+
+   Can the possible weather sequences of our observations be modeled as the
+   state history of a three-state Markov process?
+
+2. Gaussian Distribution
+
+   A noise signal x may be considered to be a Gaussian random variable with an
+   expected value of 0 and a variance of (sigma_x)^2. Assume that any
+   experimental value of x will cause an error in a digital communication
+   system if it is larger than +A.
+
+   1. Determine the probability that any particular experimental value of x
+      will cause an error if:
+      (a) (sigma_x)^2 = 10^{-2} * A^2
+      (b) (sigma_x)^2 = A^2
+      (c) (sigma_x)^2 = 9*A^2
+
+   2. For a given value of A, what is the largest (sigma_x)^2 may be to obtain
+      an error probability for any experimental value of x less than 10^{-2}?
+      10^{-4}?
+
+3. Level of Significance
+
+   A random variable x is known to be characterized by either a Gaussian PDF
+   with E(x) = 4 and sigma_x = 0.8 or by a Gaussian PDF with E(x) = 5 and
+   sigma_x = 1. Consider the null hypothesis H_0[E(x)=4, sigma_x=0.8]. We
+   wish to test H_0 at the 0.05 level of significance. Our statistic is to
+   be the sum of three experimental values of random variable x.
+
+   1. Determine the conditional probability of false acceptance of H_0.
+   2. Determine the conditional probability of false rejection of H_0.
+   3. Determine an upper bound on the probability that we shall arrive at an
+      incorrect conclusion from this hypothesis test.
+
+4. Probability About Coins
+
+   1. For 3600 independent tosses of a fair coin, determine the probability
+      that the number of heads is within +/-1% of its expected value.
+
+   2. The outcomes of successive flips of another particular coin are dependent
+      and are found to be described fully by:
+          Prob(H_{n+1} | H_n) = 3/4
+          Prob(T_{n+1} | T_n) = 2/3
+      where we have used the notation:
+          Event H_k: Heads on k-th toss
+          Event T_k: Tails on k-th toss
+      We know that the first toss came up heads.
+
+      (a) Determine the probability that the first tail will occur on the k-th
+          toss (k = 2, 3, 4, ...)
+      (b) What is the probability that flip 5000 will come up heads?
+      (c) Given that flips 5001, 5002, ..., 5000+m all have the same result,
+          what is the probability that all of these m outcomes are heads?
+          Simplify your answer as much as possible and interpret your result
+          for large values of m.
+
+   3. Consider the problem of estimating the parameter P (the probability of
+      heads) for one more particular coin. To begin, we assume the following
+      a priori probability mass function for P:
+
+          p_P(P0) = 0.2,  P0 = 0.4
+                  = 0.6,  P0 = 0.5
+                  = 0.2,  P0 = 0.6
+
+      We are now told that the coin was flipped n times. The first flip
+      resulted in head, and the remaining n-1 flips resulted in tails.
+      Determine the a posteriori PMF for P as a function of n for n >= 2.
+      Prepare neat sketches of this function for n = 2 and n = 5 and briefly
+      state your findings.
+
+   註：考卷有附 normal distribution table
+
+
+================================================================================
+【第8份】102下 劉長遠 機率 期中考
+================================================================================
+學期：102下 (2014春)
+授課教師：劉長遠
+課程名稱：機率
+開課系所：電資學院 資訊系
+考試日期：2014/04/17 (103/4/17)
+考試時限：14:20 ~ 17:20
+
+1. Probability basics
+
+   1. Random variables A, B, C, and D satisfy following conditions:
+      (a) P(A)<1, P(B)<1, P(C)<1, P(D)<1.
+      (b) A and B are independent, and C and D are independent.
+      (c) A and C are independent.
+      Are B and D independent? Why?
+
+   2. Random variables A, B, C, and D satisfy following conditions:
+      (a) P(A)<1, P(B)<1, P(C)<1, P(D)<1.
+      (b) A and B are mutually exclusive, and C and D are mutually exclusive.
+      (c) A and C are independent.
+      Are B and D independent? Why?
+
+   3. In communication network, link failures are independent, and each link
+      has a probability of failure of P. Consider the physical situation before
+      you write anything. A can communicate with B as long as they are connected
+      by at least one path which contains only in-service links.
+
+      [Network diagram: A bridge/ladder network between A and B with links
+       a, b, c, d on top path and e, f, g, h on bottom path, with vertical
+       links i, j, k connecting them at intermediate nodes]
+
+                   a       b       c       d
+              +--||--+--||--+--||--+--||--+
+              |      |      |      |      |
+        A ----+      |      |      |      +---- B
+              |      | i    | j    | k    |
+              +--||--+--||--+--||--+--||--+
+                   e       f       g       h
+
+      (a) Given that exactly 7 links have failed, determine the probability
+          that A can still communicate with B.
+      (b) Given that a, h, and j have failed without information about
+          conditions of other links, determine the probability that A can
+          still communicate with B.
+
+2. Random variables
+
+   1. We are given the following information about random variable x:
+      E[x] = 24, E[x^2] = 625,
+      E[x | x > E[x] + sigma_x], Prob[x > E[x] + sigma_x] = 0.2.
+      Determine the numerical value of E[x | x <= E[x] + sigma_x].
+
+   2. Discrete random variable x is described by the PMF:
+
+      p_x(x0) = K - x0/15,  if x0 = 0, 1, 2
+              = 0,           for all other values of x0
+
+      Let d1, d2, ..., dN represent N successive independent experimental
+      values of random variable x.
+      (a) Determine the numerical value of K.
+      (b) Determine the probability that d1 > d2.
+      (c) Determine the probability that sum_{i=1}^{N} d_i <= 1.0.
+
+3. Transform
+
+   Let k be a random variable with z-transform:
+   P_k(z) = 0.25*z^T + 0.25*z^4 + 0.5*e^{-2(z-1)(z-2)}
+
+   (Note: the expression T appears in original -- may be a specific value)
+
+   Let x be a random variable with s-transform:
+   f_x(s) = 0.5/(s + 0.5)
+
+   Let w be the sum of k independent experimental values of random variable x.
+
+   1. E(k^2)
+   2. E(w)
+
+4. Poisson Process
+
+   A woman is seated beside a conveyer belt, and her job is to remove certain
+   items from the belt. She has a narrow line of vision and can get these items
+   only when they are right in front of her.
+   She has noted that the probability that exactly k of her items will arrive
+   in a minute is given by:
+
+       p_k(k0) = 2^{k0} * e^{-2} / k0!,   k0 = 0, 1, 2, 3, ...
+
+   and she assumes that the arrivals of her items constitute a Poisson process.
+
+   1. If she wishes to sneak out to have a beer but will not allow the expected
+      value of the number of items she misses to be greater than 5, how much
+      time can she take?
+
+   2. If she leaves for two minutes, what is the probability that she will miss
+      a total of exactly 4 items?
+
+   3. The union has installed a bell which rings once a minute with precisely
+      one-minute intervals between gongs. If, between two successive gongs,
+      more than 3 items come along the belt, she will handle only 3 of them
+      properly and will destroy the rest. Under this system, what is the
+      probability that any particular item will be destroyed?
+
+
+================================================================================
+【第9份】101下 葉丙成 機率與統計 期末考
+================================================================================
+學期：101下 (2013春)
+授課教師：葉丙成
+課程名稱：機率與統計
+開課系所：電資學院 電機系 (必修)
+考試日期：2013/06/20
+備註：本考卷由葉丙成教授親自張貼於PTT (ID: pcyeh)
+
+試題：50%
+
+【瓊博的奇幻旅程】
+
+（以下試題以故事形式呈現，考題穿插於故事之中）
+
+--- 場景一：春秋時期 ---
+
+2013 夏，Dr. Jones（簡稱瓊博）受 Prof. Hey（老葉）之邀，到東鯤太學訪問。
+兩人發現天問石，敲擊後穿越到春秋魯國。魯君與曾媽討論曾參的教職問題。
+老葉建議做家長調查：若七成以上家長覺得曾參是好人，就聘他。
+
+已知：各家長獨立不受其他家長影響。軍士調查誤差百分之三以內。
+
+(5%) a. 已知春秋時期通訊技術落後，怪獸家長不易串連生端，各家家長獨立不受
+   其他家長影響。若你為老葉，請問應向魯君請求軍士探詢多少位家長才能達到
+   九成以上的信心？
+
+(5%) b. 若魯君表示，要探詢多戶家長有困難，最多只能探詢千戶家長。經詢問之後，
+   恰恰六成人認為曾參是好人，誤差正負百分之三以內。請問老葉對這樣調查的
+   信心度有多少？
+
+--- 場景二：東晉淝水之戰前夕 ---
+
+穿越到東晉，見到謝安與謝玄討論軍務。軍中世家子弟沉迷自繪（類似古代版
+自拍打卡），收集讚印。謝安決定公告：大勝後每讚發一兩金以鼓舞士氣。
+
+(10%) c. 若已知東晉世家子弟每人皆有自繪嗜好。東晉軍中共有一千世家子弟，
+   每人戰後存活機率為 0.5，每人存活與否為獨立事件。若已知每人收集讚數彼此
+   獨立，且每人收集讚數從 1 讚、2 讚、...、到 200 讚都機會均等（1/200）。
+   請問，謝安戰後犒賞黃金總兩數之 MGF 為何？
+
+(5%) d. 承上，犒賞黃金總兩數之期望值與標準差為何？
+
+--- 場景三：大唐 酒仙大戰 ---
+
+穿越到大唐，遇到李白與賀知章鬥酒。
+已知李白喝酒非常神勇，不管之前已經喝了多少，對於之後還能喝多少，似乎完全
+沒有影響。賀知章喝酒的模式也是一樣。李白平均每次酒聚喝的總量是二升。賀知章
+因年長，平均每次酒聚飲酒總量是一升。
+
+(5%) e. 若李、賀二人飲酒總量相互獨立，不受對方影響，請問在酒仙大賽中，李白
+   總酒量 X 與賀知章總酒量 Y 的 joint PDF 為何？
+
+(5%) f. 李、賀二人總共喝的酒量，期望值為多少升？標準差又是多少？
+
+(5%) g. 瓊博跟老葉酒足飯飽，決定投注酒仙大賽結果為樂。瓊博押李太白勝出，
+   老葉押賀知章勝出。請問最後是李太白勝出的機率為何？
+
+(10%) h. 瓊葉二人決定投注賠率 W =「酒仙大賽贏家飲酒量」/「酒仙大賽輸家飲酒量」。
+   請問 W 的機率分布為何？
+
+
+================================================================================
+【第10份】101下 林守德 機率 期末考
+================================================================================
+學期：101下 (2013春)
+授課教師：林守德
+課程名稱：機率
+開課系所：電機資訊學院 資訊工程學系
+考試日期：2013/06/17
+考試時限：180分鐘 (14:30-17:30)
+總分：120分
+可用中文或英文作答
+
+1. Short Answer:
+   (a) What are PageRank and TFIDF? Why we need both of them to build a good
+       information retrieval model? (5pts)
+   (b) Draw the Venn Diagram of Entropy and Mutual Information of two random
+       variables (5pts)
+   (c) What is noisy channel model? What kind of problem can be solved by it?
+       (5pts)
+   (d) Is KL-divergence a good 'distance' measure? If not, how to fix it?
+       (5pts)
+
+2. (Revisit midterm II) The probabilities of failure on component 1 (follow
+   Poisson of probability lambda_1 = 4) and component 2 (follow Poisson of
+   probability lambda_2 = 5) of a product are independent. We observe 3
+   product failures, what is the probability that two of them come from
+   component 1? (6pts)
+
+3. (Revisit midterm II) Let X and Y be two independent random points from the
+   interval (0,1). Calculate the CDF of min(X,Y)/max(X,Y). (8pts)
+
+4. (Revisit midterm II) Let {X1, X2, ..., Xn} be a sequence of Gamma random
+   variables with parameter alpha_1, alpha_2, ..., alpha_n and identical theta.
+   Find the distribution function of sum_i Xi.
+   (Hint: the mgf of Gamma(alpha, theta) is (1-theta*t)^{-alpha}) (8pts)
+
+5. (Revisit midterm II) A point (X,Y) is selected randomly from the triangle
+   with vertices (0,0), (1,1) and (1,0). Calculate E(X|Y=y). (6pts)
+
+6. In the class, we have discussed the n-gram language model. Indeed there is
+   a tradeoff in determining n: larger n allows us to model the longer-distance
+   dependency among words without significantly increasing the storage size?
+   (10pts)
+
+7. Let X be a discrete random variable. Show that the entropy of a function
+   of X is less than or equal to the entropy of X. (8pts)
+
+8. A playoff consists of a three-game series that terminates as soon as either
+   team wins two games. Let X be the random variable that represents the
+   outcome of a playoff between teams A and B; examples of possible values of
+   X are AA, and BAB. Let Y be the number of games played, which ranges from
+   2 to 3.
+   (a) Assuming that A and B are equally matched and that the games are
+       independent, calculate H(X), H(Y), H(Y|X), and H(X|Y). (10pts)
+   (b) Let Z denote the winning team. Find H(X|Z). (5pts)
+
+9. A certain geneticist is interested in the proportion of males and females
+   in the population that have a certain minor blood disorder. In a random
+   sample of 1000 males, 250 are found to be afflicted, whereas 275 of 1000
+   females tested appear to have the disorder. Compute a 95% confidence
+   interval for the difference between the proportion of males and females
+   that have the blood disorder.
+   (Hint: the variance of binomial is np(1-p)) (8pts)
+
+10. Suppose that X and Y are independent exponential random variables with
+    parameter lambda, and let Z = X/(X+Y). Show that Z is a uniform
+    distribution over (0,1). (8pts)
+
+11. A simple random sample of 1000 eligible voters was chosen to study the
+    relationship between sex and participation in an election. The results are
+    summarized in the following table: (8pts)
+
+                         Men    Women
+         Vote            260      360
+         Didn't vote     140      240
+
+12. Let {X1, X2, ..., Xn} are integers, generated by random round-off
+    sampling from a uniform distribution U[0, b]. Now we want to estimate
+    the parameter b. This is known as the German tank problem in WWII.
+    (Samples are the German tank serial numbers spotted by the Allies, and
+    we want to estimate the total number of tanks Germany has.) (5*3=15pts)
+
+    a. Find the estimation of parameter b using Maximum Likelihood Estimation.
+    b. Find the estimation of parameter b using Method of Moments.
+    c. What are the potential concerns for each of the estimation?
+
+附表：KL divergence, Poisson distribution, Chi-square table (考卷有附)
+
+
+================================================================================
+【額外補充】103下 林守德 機率 期末考
+================================================================================
+學期：103下 (2015春)
+授課教師：林守德
+課程名稱：機率
+開課系所：電資 資工
+考試日期：2015/06/25
+考試時限：180分鐘 (14:30-17:30)
+總分：120分
+可用中文或英文作答
+
+Note: please use Phi function as the CDF of standard normal distribution.
+Phi(2) = 98%, Phi(1.65) = 95%.
+Variance of Binomial distribution: np(1-p)
+KL divergence: D_KL(P||Q) = sum_i ln(P(i)/Q(i)) * P(i)
+
+1. John builds an auto-translation tool, and wants to claim that the tool he
+   builds is better than the Google Translator (whose accuracy is 75%). He
+   tested on 100 sentences and found 76 of them were translated correctly.
+   (a) What is the 95% confidence interval of the accuracy of his system?
+       (hint: Z_{0.05}=1.65, Z_{0.025}=1.96) Can you use confidence interval
+       to convince people John's system is better? (6pts)
+   (b) Given H_0 = 75%, what is the p-value? You don't need to calculate the
+       exact p-value, just list its equation is good enough. (6pts)
+
+2. Suppose that A1 and A2 are independent uniform random variables on [0, 1].
+   Let X = max{A1, A2}. Compute the probability density function for X. (6pts)
+
+3. X follows a uniform distribution on [0, 6].
+   Y follows exponential distribution with theta = 1/3; Also X, Y are
+   independent. Find the probability such that Y >= X. (6pts)
+
+4. Please describe how to estimate the value of pi (i.e. 3.1415...) using only
+   a random function r() that returns a real number between [0, 1], and
+   operations +, -, *, /. Please write a C or pseudo code to do so. (10pts)
+
+5. Calculate the PageRank of A, B, C, D or provide a pseudo code telling us
+   how to find the PageRank values of A, B, C, D (8pts)
+
+   B ---> A, B ---> C, C ---> A, C ---> D, D ---> A, D ---> B, A ---> D
+
+6. You want to build an automatic process to correct "Chiglish sentences"
+   (中式英文) with misused verb. For example, you want the system to
+   automatically correct the sentence "open the light" to "I turn on the
+   light". You are given a large set of English sentences written by native-
+   Chinese writers, and a large set of sentences from native English speakers.
+   Please describe how you can use the n-gram language model together with
+   noisy channel model to resolve this problem. (8pts)
+
+7. Consider throwing 60 four-sided unbiased dice all together at a time and
+   observe their total sum. Assume that you perform the experiment 2000 times.
+   After the experiments, you plot the observed counts corresponding to all
+   possible sums (from 60 to 240). Give the continuous function that you think
+   best fits the observed data plot. (8pts)
+
+8. Let X have a gamma distribution with alpha = 2 and theta = 2. Please find
+   the probability density function of Y = e^{2X}. (8pts)
+
+9. Let X1, X2, X3, ..., Xn be iid random sample from geometric distribution
+   with unknown parameter p. Please use maximum likelihood function to find
+   this p. (8pts)
+
+10. (a) Y = x1 + x2, and Mgf(x1) = (e^t - 1)/t, Mgf(x2) = t*e^{t^2/2}/(e^t - 1).
+    Use Chebyshev's inequality to find the lower bound of P(-2 < Y < 2). (7pts)
+    (b) Do you think this lower bound attained from Chebyshev's inequality is
+    tight? Explain your answer (hint: use the lookup table we provide). (7pts)
+
+11. Suppose two random points are chosen independently and uniformly from the
+    unit square [0, 1] x [0, 1], and let D denote the distance between the two
+    points (X1, Y1) and (X2, Y2).
+
+    D^2 = (X1 - X2)^2 + (Y1 - Y2)^2
+
+    Find E(D^2). (8pts)
+
+12. The table shows the choices made by 120 players of a Rock-Paper-Scissors
+    game. A player gains an advantage in playing this game if there is evidence
+    that the choices made are not equally distributed among the three options.
+    Use a chi-square test to see if there is evidence that any of the
+    proportions are different from 1/3. (8pts)
+
+    Option selected  | Frequency
+    -----------------+----------
+    Rock             | 60
+    Paper            | 39
+    Scissors         | 21
+
+13. Given a 6-sided die, what is the mutual information between the top side
+    and the front face (the side most facing you)? (8pts)
+
+14. (Entropy) Let X be a function of Y. Prove that H(X) <= H(Y). (8pts)
+
+
+================================================================================
+                              整理完畢
+================================================================================

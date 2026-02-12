@@ -4,6 +4,43 @@
 
 ---
 
+## 本章基礎觀念（零基礎必讀）
+
+### 為什麼需要學聯合分布與變數轉換？
+
+想像你同時丟兩顆骰子，你想知道「兩顆骰子點數的和」是多少。這時候你不能只看一顆骰子——你需要同時考慮兩顆骰子的結果。這就是**聯合分布**的核心想法：同時描述多個隨機變數的行為。
+
+再進一步，如果你知道骰子的點數分布，想推出「點數的平方」或「兩顆骰子之和」的分布，這就是**變數轉換**——從已知分布推出新變數的分布。
+
+這兩個工具在統計學和機器學習中無處不在。例如：投資組合需要考慮多支股票的聯合報酬率；醫學研究需要分析身高和體重的聯合關係。
+
+### 本章關鍵術語表
+
+| 術語 | 英文 | 白話解釋 | 例子 |
+|------|------|----------|------|
+| 聯合分布 | Joint Distribution | 同時描述兩個（或多個）隨機變數的分布 | 兩顆骰子同時丟，(X,Y) 的所有可能組合及其機率 |
+| 聯合 PMF | Joint PMF | 離散情形下，(X,Y) 同時取特定值的機率 | P(骰子1=3, 骰子2=5) = 1/36 |
+| 聯合 PDF | Joint PDF | 連續情形下，(X,Y) 的機率密度函數 | f(x,y) = 6(1-y)，在三角形區域上 |
+| 邊際分布 | Marginal Distribution | 從聯合分布「積掉」另一個變數，得到單一變數的分布 | 知道 (X,Y) 的聯合分布後，只看 X 自己的分布 |
+| 條件分布 | Conditional Distribution | 知道 Y=y 後，X 的分布如何變化 | 知道體重=70kg 後，身高的分布 |
+| Jacobian 行列式 | Jacobian Determinant | 多變數變換時，用來修正「面積扭曲」的因子 | 直角座標轉極座標時的 r |
+| 摺積 | Convolution | 求兩個獨立隨機變數之和的分布的方法 | X+Y 的 PDF = X 和 Y 的 PDF 做摺積 |
+| 順序統計量 | Order Statistics | 把 n 個樣本從小到大排列後的第 k 個值 | 5 個考試成績排序後的中位數 |
+| 支撐（區域） | Support | 隨機變數（或密度函數）不為零的範圍 | Uniform(0,1) 的支撐是 [0,1] |
+
+### 前置知識
+
+你需要先讀完以下章節：
+- **prob_01 ~ prob_03**：知道什麼是隨機變數、PMF、PDF、CDF
+- **prob_04**：熟悉常見分布（Uniform、Exponential、Normal 等）
+
+關鍵公式複習：
+- CDF 和 PDF 的關係：$F(x) = \int_{-\infty}^x f(t)\,dt$，$f(x) = F'(x)$
+- Uniform(a,b) 的 PDF：$f(x) = \frac{1}{b-a}$，$a \le x \le b$
+- Normal 的 PDF：$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/(2\sigma^2)}$
+
+---
+
 ## 一、聯合分布的基本概念
 
 ### 1.1 為什麼需要聯合分布？
@@ -22,6 +59,19 @@
 
 $$p_{X,Y}(x, y) = P(X = x, Y = y)$$
 
+> **數值範例：兩顆骰子同時丟**
+>
+> 設 $X$ = 第一顆骰子點數，$Y$ = 第二顆骰子點數，兩顆獨立公平骰子。
+>
+> 聯合 PMF：$p_{X,Y}(x,y) = \frac{1}{36}$，對所有 $x \in \{1,...,6\}$，$y \in \{1,...,6\}$
+>
+> 例如：$P(X=2, Y=5) = \frac{1}{36}$
+>
+> 驗證總和：共 $6 \times 6 = 36$ 個組合，每個機率 $\frac{1}{36}$，總和 $= 36 \times \frac{1}{36} = 1$ ✓
+>
+> 如果我們想知道 $P(X+Y=7)$，需要把所有使 $x+y=7$ 的組合加起來：
+> $(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)$，共 6 個，所以 $P(X+Y=7) = \frac{6}{36} = \frac{1}{6}$
+
 **性質**：
 
 1. $p_{X,Y}(x, y) \ge 0$
@@ -38,6 +88,16 @@ $$P((X,Y) \in A) = \iint_A f_{X,Y}(x, y)\,dx\,dy$$
 1. $f_{X,Y}(x, y) \ge 0$
 2. $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x, y)\,dx\,dy = 1$
 3. $f_{X,Y}(x, y)$ 是密度，不是機率，可以大於 1
+
+> **數值範例：三角形區域上的聯合 PDF**
+>
+> 設 $f_{X,Y}(x,y) = 2$，在三角形區域 $0 \le x \le 1,\; 0 \le y \le x$ 上；其他地方為 0。
+>
+> **驗證是合法的 PDF**：
+> $$\int_0^1 \int_0^x 2\,dy\,dx = \int_0^1 2x\,dx = \left[x^2\right]_0^1 = 1 \quad \checkmark$$
+>
+> **求 $P(X \le 0.5)$**：
+> $$P(X \le 0.5) = \int_0^{0.5}\int_0^x 2\,dy\,dx = \int_0^{0.5} 2x\,dx = \left[x^2\right]_0^{0.5} = 0.25$$
 
 ### 1.4 聯合 CDF
 
@@ -92,6 +152,29 @@ $$f_Y(y) = \int_0^y 6(1-y)\,dx = 6(1-y) \cdot y = 6y(1-y), \quad 0 \le y \le 1$$
 這是 Beta(2, 2) 分布！
 
 **驗證**：$\int_0^1 6y(1-y)\,dy = 6\left[\frac{y^2}{2} - \frac{y^3}{3}\right]_0^1 = 6\left(\frac{1}{2} - \frac{1}{3}\right) = 6 \cdot \frac{1}{6} = 1$ ✓
+
+> **數值範例：用具體數字體會「積掉」的過程**
+>
+> 繼續上面的例子，$f_{X,Y}(x,y) = 6(1-y)$，$0 \le x \le y \le 1$。
+>
+> **求 $f_X(0.3)$**（固定 $x = 0.3$，把 $y$ 積掉）：
+>
+> $y$ 的範圍：$0.3 \le y \le 1$
+>
+> $$f_X(0.3) = \int_{0.3}^{1} 6(1-y)\,dy = 6\left[y - \frac{y^2}{2}\right]_{0.3}^{1}$$
+> $$= 6\left[\left(1 - 0.5\right) - \left(0.3 - 0.045\right)\right] = 6\left[0.5 - 0.255\right] = 6 \times 0.245 = 1.47$$
+>
+> 用公式驗證：$f_X(x) = 3(1-x)^2$，$f_X(0.3) = 3(0.7)^2 = 3 \times 0.49 = 1.47$ ✓
+>
+> **求 $f_Y(0.6)$**（固定 $y = 0.6$，把 $x$ 積掉）：
+>
+> $x$ 的範圍：$0 \le x \le 0.6$
+>
+> $$f_Y(0.6) = \int_0^{0.6} 6(1-0.6)\,dx = 6 \times 0.4 \times 0.6 = 1.44$$
+>
+> 用公式驗證：$f_Y(y) = 6y(1-y)$，$f_Y(0.6) = 6 \times 0.6 \times 0.4 = 1.44$ ✓
+>
+> **重點**：注意 $f_X(0.3) = 1.47 > 1$，這是合法的！PDF 的值可以大於 1，因為它是密度，不是機率。
 
 ---
 
@@ -179,6 +262,35 @@ $$F_Y(y) = P(Y \le y) = P(g(X) \le y) = P(X \in \{x : g(x) \le y\})$$
 > **優點**：萬用，不管 $g$ 是不是單調、是不是一對一都能用。
 > **缺點**：有時候要分段討論。
 
+#### 範例 0：CDF 法入門 — Y = X²，X~Uniform(0,1)
+
+> **數值範例：從最簡單的例子開始**
+>
+> **題目**：$X \sim \text{Uniform}(0,1)$，求 $Y = X^2$ 的 PDF。
+>
+> **Step 1**：確定 $Y$ 的範圍。$X \in [0,1]$，所以 $Y = X^2 \in [0,1]$。
+>
+> **Step 2**：求 CDF。對 $0 \le y \le 1$：
+>
+> $$F_Y(y) = P(Y \le y) = P(X^2 \le y) = P(X \le \sqrt{y})$$
+>
+> 因為 $X \ge 0$，所以 $X^2 \le y \iff X \le \sqrt{y}$（不用考慮負的）。
+>
+> $$F_Y(y) = P(X \le \sqrt{y}) = \sqrt{y} \quad \text{（因為 } X \sim \text{Uniform}(0,1) \text{，CDF 就是 } x \text{）}$$
+>
+> **Step 3**：微分得 PDF。
+>
+> $$f_Y(y) = F_Y'(y) = \frac{d}{dy}\sqrt{y} = \frac{1}{2\sqrt{y}}, \quad 0 < y \le 1$$
+>
+> **Step 4**：驗證。
+>
+> $$\int_0^1 \frac{1}{2\sqrt{y}}\,dy = \left[\sqrt{y}\right]_0^1 = 1 \quad \checkmark$$
+>
+> **用具體數字檢查**：$P(Y \le 0.25) = P(X^2 \le 0.25) = P(X \le 0.5) = 0.5$。
+> 用 CDF 公式：$F_Y(0.25) = \sqrt{0.25} = 0.5$ ✓
+>
+> **觀察**：$f_Y(y) = \frac{1}{2\sqrt{y}}$ 在 $y$ 接近 0 時趨於無窮大！這是因為 $X$ 在接近 0 的地方，平方後「壓縮」了，密度變高。
+
 #### 範例 1：求 Y = X² 的 PDF（CDF 法）
 
 **題目**：$X \sim N(0, 1)$，求 $Y = X^2$ 的 PDF。
@@ -257,6 +369,20 @@ $$= \frac{1}{y\sigma\sqrt{2\pi}} \exp\left(-\frac{(\ln y - \mu)^2}{2\sigma^2}\ri
 
 ### 5.3 方法三：多變數 Jacobian 法
 
+> **什麼是 Jacobian？白話解釋**
+>
+> 當你把座標從 $(x,y)$ 變成 $(u,v)$ 時，空間會被「扭曲」。原本 $(x,y)$ 空間裡一個小正方形，到了 $(u,v)$ 空間可能變成平行四邊形，面積也變了。
+>
+> **Jacobian 行列式就是衡量這個面積變化的倍率**。
+>
+> 舉個最直覺的例子：直角座標 $(x,y)$ 轉極座標 $(r,\theta)$ 時，Jacobian = $r$。這就是為什麼極座標的面積元素是 $r\,dr\,d\theta$ 而不是 $dr\,d\theta$——因為離原點越遠，同樣的 $dr\,d\theta$ 對應的實際面積越大。
+>
+> **什麼是行列式？2x2 矩陣的行列式很簡單**：
+>
+> $$\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$$
+>
+> 幾何意義：以矩陣兩行（或兩列）為邊的平行四邊形面積（帶正負號）。
+
 **情境**：有 $(X, Y)$ 的聯合 PDF，想求 $(U, V) = (g_1(X,Y), g_2(X,Y))$ 的聯合 PDF。
 
 **公式**：
@@ -266,6 +392,25 @@ $$f_{U,V}(u, v) = f_{X,Y}(x(u,v),\; y(u,v)) \cdot |J|$$
 其中 $J$ 是 **Jacobian 行列式**：
 
 $$J = \det\begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v} - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}$$
+
+> **數值範例：簡單的線性變換**
+>
+> 設 $(X,Y)$ 的聯合 PDF 為 $f_{X,Y}(x,y) = 1$，在正方形 $0 \le x \le 1,\; 0 \le y \le 1$ 上。
+>
+> 令 $U = X + Y$，$V = X - Y$。求 $(U,V)$ 的聯合 PDF。
+>
+> **Step 1**：求反變換。
+> 由 $U = X+Y$，$V = X-Y$，解出 $X = \frac{U+V}{2}$，$Y = \frac{U-V}{2}$。
+>
+> **Step 2**：計算 Jacobian。
+> $$J = \det\begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\ \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \end{pmatrix} = \det\begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix} = \frac{1}{2} \times (-\frac{1}{2}) - \frac{1}{2} \times \frac{1}{2} = -\frac{1}{2}$$
+>
+> 所以 $|J| = \frac{1}{2}$。
+>
+> **Step 3**：代入公式。
+> $$f_{U,V}(u,v) = f_{X,Y}\left(\frac{u+v}{2}, \frac{u-v}{2}\right) \cdot \frac{1}{2} = 1 \times \frac{1}{2} = \frac{1}{2}$$
+>
+> （在新的支撐區域上。原來的正方形 $0 \le x \le 1, 0 \le y \le 1$ 在新座標下變成菱形。）
 
 > **注意**：這裡的 Jacobian 是**反變換**（從 $(u,v)$ 回到 $(x,y)$）的 Jacobian。
 
@@ -615,6 +760,38 @@ $$\left|\frac{\partial(x,y)}{\partial(u,v)}\right| = \frac{1}{\left|\frac{\parti
 | 變數變換 | 反函數 + Jacobian | 完整 PDF | 需單調 / 多變數 |
 | 摺積 | $\int f_X(z-y)f_Y(y)\,dy$ | $Z=X+Y$ 的 PDF | 只限求和 |
 | MGF | $M_Z = M_X \cdot M_Y$ | 辨認分布 | 要能辨認 MGF |
+
+---
+
+### 自我檢測
+
+1. **基礎題**：設 $(X,Y)$ 的聯合 PDF 為 $f(x,y) = 4xy$，$0 < x < 1$，$0 < y < 1$。判斷 $X$ 和 $Y$ 是否獨立？求 $f_X(x)$。
+
+2. **計算題**：$X \sim \text{Uniform}(0,2)$，用 CDF 法求 $Y = 3X + 1$ 的 PDF。
+
+3. **Jacobian 題**：設 $X,Y$ 獨立，都服從 $\text{Exp}(1)$。令 $U = X + Y$，$V = X/(X+Y)$。求 $(U,V)$ 的聯合 PDF，並證明 $U$ 和 $V$ 獨立。
+
+4. **邊際分布題**：設 $f(x,y) = e^{-y}$，$0 < x < y < \infty$。求 $f_X(x)$ 和 $f_Y(y)$。
+
+<details><summary>參考答案</summary>
+
+**1.** $f_X(x) = \int_0^1 4xy\,dy = 4x \cdot \frac{1}{2} = 2x$。$f_Y(y) = \int_0^1 4xy\,dx = 2y$。
+$f_X(x) \cdot f_Y(y) = 4xy = f(x,y)$，且支撐區域 $(0,1) \times (0,1)$ 是矩形。所以 **$X$ 和 $Y$ 獨立**。
+
+**2.** $F_Y(y) = P(3X+1 \le y) = P(X \le \frac{y-1}{3})$。
+$X \sim \text{Uniform}(0,2)$，所以 $F_X(x) = x/2$。
+$F_Y(y) = \frac{(y-1)/3}{2} = \frac{y-1}{6}$，$y \in [1, 7]$。
+微分：$f_Y(y) = \frac{1}{6}$，$1 \le y \le 7$。所以 $Y \sim \text{Uniform}(1,7)$。
+
+**3.** 反變換：$X = UV$，$Y = U(1-V)$。
+Jacobian：$J = \det\begin{pmatrix} V & U \\ 1-V & -U \end{pmatrix} = -UV - U(1-V) = -U$，$|J| = U$。
+$f_{U,V}(u,v) = e^{-uv} \cdot e^{-u(1-v)} \cdot u = u e^{-u}$，$u > 0$，$0 < v < 1$。
+這可以拆成 $f_U(u) = u e^{-u}$（Gamma(2,1) 的 PDF）和 $f_V(v) = 1$（Uniform(0,1)）。所以 $U$ 和 $V$ 獨立。
+
+**4.** $f_X(x) = \int_x^\infty e^{-y}\,dy = e^{-x}$，$x > 0$。
+$f_Y(y) = \int_0^y e^{-y}\,dx = ye^{-y}$，$y > 0$。
+
+</details>
 
 ---
 

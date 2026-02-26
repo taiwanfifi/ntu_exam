@@ -20,6 +20,8 @@
 
 ## 檔案總覽
 
+### A. 可執行 Python 程式碼（18 檔案，20,007 行）
+
 | 編號 | 檔名 | 主題 | 難度階段 |
 |------|------|------|----------|
 | 00 | `00_解題框架_總覽.py` | Master Decision Tree — 看到什麼用什麼 | 所有階段 |
@@ -32,15 +34,65 @@
 | 07 | `07_Tree_DFS.py` | Tree + DFS（前/中/後序） | Phase 2 |
 | 08 | `08_Tree_BFS_BST.py` | Tree BFS (Level Order) + BST 性質 | Phase 2 |
 | 09 | `09_Graph_DFS_BFS.py` | Graph 基礎 — DFS / BFS / Connected Components | Phase 2 |
-| 10 | `10_Graph_TopSort_UnionFind.py` | Topological Sort + Union-Find | Phase 3 |
-| 11 | `11_Graph_Shortest_Path.py` | Dijkstra / Bellman-Ford / Floyd-Warshall | Phase 3 |
-| 12 | `12_DP_1D.py` | Dynamic Programming 一維 | Phase 2 |
-| 13 | `13_DP_2D_Knapsack.py` | DP 二維 + Knapsack + LCS / LIS | Phase 3 |
-| 14 | `14_Backtracking.py` | Backtracking（排列/組合/子集） | Phase 3 |
-| 15 | `15_Greedy.py` | Greedy 策略 | Phase 2 |
-| 16 | `16_Heap_Priority_Queue.py` | Heap / Priority Queue | Phase 2 |
-| 17 | `17_Trie.py` | Trie (Prefix Tree) | Phase 3 |
-| 18 | `18_Sort_And_Bit.py` | Sorting 演算法 + Bit Manipulation | Phase 3 |
+| 10 | `10_Graph_TopSort_UnionFind.py` | Topological Sort + Union-Find + Dijkstra | Phase 3 |
+| 11 | `11_DP_1D.py` | Dynamic Programming 一維 | Phase 2 |
+| 12 | `12_DP_2D_Knapsack.py` | DP 二維 + Knapsack + LCS / LIS | Phase 3 |
+| 13 | `13_Backtracking.py` | Backtracking（排列/組合/子集） | Phase 3 |
+| 14 | `14_Greedy.py` | Greedy 策略 | Phase 2 |
+| 15 | `15_Heap_Priority_Queue.py` | Heap / Priority Queue | Phase 2 |
+| 16 | `16_Trie.py` | Trie (Prefix Tree) | Phase 3 |
+| 17 | `17_Sort_And_Bit.py` | Sorting 演算法 + Bit Manipulation | Phase 3 |
+
+### B. 教科書級教學講義（17 檔案，23,446 行）
+
+> 每個主題配一份 .md，含公式推導、2+ 數值範例、step-by-step 走法、corner case 整理
+
+| 編號 | 檔名 | 行數 |
+|------|------|------|
+| 01 | `01_Array_Two_Pointers_教學.md` | 1,278 |
+| 02 | `02_Sliding_Window_教學.md` | 1,732 |
+| 03 | `03_HashMap_HashSet_教學.md` | 1,298 |
+| 04 | `04_Stack_Queue_教學.md` | 1,497 |
+| 05 | `05_Linked_List_教學.md` | 1,266 |
+| 06 | `06_Binary_Search_教學.md` | 1,513 |
+| 07 | `07_Tree_DFS_教學.md` | 1,331 |
+| 08 | `08_Tree_BFS_BST_教學.md` | 1,405 |
+| 09 | `09_Graph_DFS_BFS_教學.md` | 1,458 |
+| 10 | `10_Graph_Advanced_教學.md` | 1,462 |
+| 11 | `11_DP_1D_教學.md` | 1,484 |
+| 12 | `12_DP_2D_Knapsack_教學.md` | 1,480 |
+| 13 | `13_Backtracking_教學.md` | 1,499 |
+| 14 | `14_Greedy_教學.md` | 1,395 |
+| 15 | `15_Heap_教學.md` | 1,166 |
+| 16 | `16_Trie_教學.md` | 991 |
+| 17 | `17_Sort_Bit_教學.md` | 1,191 |
+
+### C. 情境式解題地圖 — 管理顧問式思維（3 檔案，3,088 行）
+
+> 從「問題長什麼樣」出發，而非從「算法叫什麼」出發
+
+| 編號 | 檔名 | 核心內容 | 行數 |
+|------|------|---------|------|
+| 18 | `18_情境解題地圖_Level1_問題是什麼.md` | 8 大問題類型 × 120+ 情境 | 1,383 |
+| 19 | `19_情境解題地圖_Level2_怎麼選算法.md` | 139 條決策規則 × 算法選擇矩陣 | 709 |
+| 20 | `20_情境解題地圖_Level3_交叉與實戰.md` | 30 種算法組合 + 40 題鑑別 + 20 模擬 | 996 |
+
+### D. 進階實戰指南（12 檔案，15,904 行）
+
+| 編號 | 檔名 | 核心內容 | 行數 |
+|------|------|---------|------|
+| 21 | `21_從Easy到Hard的進化路線.md` | 15 條 Easy→Medium→Hard 進化鏈 | 1,432 |
+| 22 | `22_解題思考過程_面試官視角.md` | 20 題完整思考過程紀錄 | 1,334 |
+| 23 | `23_相似題鑑別大全_100組易混淆題目.md` | 85 組易混淆題目對比 | 1,112 |
+| 24 | `24_Google_NVIDIA_高頻題型深度解析.md` | 50 道 Google/NVIDIA 必刷題深度攻略 | 1,397 |
+| 25 | `25_Edge_Case陷阱大全.md` | 12 章 edge case 陷阱 | 1,488 |
+| 26 | `26_白板Coding模板速查_所有算法模板.md` | 45 個白板模板 | 1,364 |
+| 27 | `27_時間空間複雜度完全指南.md` | Big-O 分析 + 攤銷 + 面試應答 | 1,203 |
+| 28 | `28_算法之間的深層連結與等價.md` | 11 章算法等價關係 + 統一圖論視角 | 1,201 |
+| 29 | `29_面試模擬題組_5回合實戰.md` | 5 回合完整模擬面試 | 1,199 |
+| 30 | `30_Python面試技巧與常用API速查.md` | Python 面試技巧與 API 速查 | 1,182 |
+| 31 | `31_Hard題拆解術_如何把難題變簡單.md` | 5 策略 × 30 道 Hard 題拆解 | 1,547 |
+| 32 | `32_資料結構設計題_LRU_Trie等.md` | 9 道資料結構設計題完整實作 | 1,445 |
 
 ---
 
@@ -53,21 +105,20 @@ Phase 1: Foundation（地基）        Phase 2: Intermediate（進階）
 │ 01 Array + Two Pointers  │       │ 07 Tree DFS               │
 │ 02 Sliding Window        │  ──►  │ 08 Tree BFS + BST         │
 │ 03 HashMap / HashSet     │       │ 09 Graph DFS / BFS        │
-│ 04 Stack / Queue         │       │ 12 DP 1D                  │
-│ 05 Linked List           │       │ 15 Greedy                 │
-└─────────────────────────┘       │ 16 Heap / Priority Queue  │
+│ 04 Stack / Queue         │       │ 11 DP 1D                  │
+│ 05 Linked List           │       │ 14 Greedy                 │
+└─────────────────────────┘       │ 15 Heap / Priority Queue  │
                                    └──────────────────────────┘
                                               │
                                               ▼
 Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
 ┌──────────────────────────┐      ┌──────────────────────────────┐
 │ 10 Graph TopSort+UnionFind│      │ 回頭重做 Phase 1-3 的題目    │
-│ 11 Graph Shortest Path   │      │ 限時 25 分鐘/題              │
-│ 13 DP 2D + Knapsack      │      │ 口述解題（用英文練習）        │
-│ 14 Backtracking          │      │ Edge case 練習              │
-│ 17 Trie                  │      │ System Design 搭配          │
-│ 18 Sort + Bit            │      └──────────────────────────────┘
-└──────────────────────────┘
+│ 12 DP 2D + Knapsack      │      │ 限時 25 分鐘/題              │
+│ 13 Backtracking          │      │ 口述解題（用英文練習）        │
+│ 16 Trie                  │      │ 29 模擬面試題組              │
+│ 17 Sort + Bit            │      │ 32 資料結構設計題            │
+└──────────────────────────┘      └──────────────────────────────┘
 ```
 
 ### 各 Phase 目標
@@ -91,27 +142,26 @@ Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
      │    └── 06 Binary Search（Array 上的搜尋）
      │
      ├── 03 HashMap / HashSet ◄── 與 01 平行學習
-     │    └── 17 Trie（HashMap 的樹狀延伸）
+     │    └── 16 Trie（HashMap 的樹狀延伸）
      │
      ├── 04 Stack / Queue
-     │    └── 16 Heap / Priority Queue（Queue 的延伸）
+     │    └── 15 Heap / Priority Queue（Queue 的延伸）
      │
      ├── 05 Linked List ◄── 獨立主題，可穿插
      │
      ├── 07 Tree DFS ◄── 需要先會 Recursion 概念
      │    ├── 08 Tree BFS + BST（Tree 的另一種走法）
-     │    └── 14 Backtracking（DFS 的延伸應用）
+     │    └── 13 Backtracking（DFS 的延伸應用）
      │
      ├── 09 Graph DFS / BFS ◄── 需要先會 07, 08
-     │    ├── 10 TopSort + Union-Find
-     │    └── 11 Shortest Path（Dijkstra 等）
+     │    └── 10 TopSort + Union-Find + Dijkstra
      │
-     ├── 12 DP 1D ◄── 需要先會 Recursion
-     │    └── 13 DP 2D + Knapsack
+     ├── 11 DP 1D ◄── 需要先會 Recursion
+     │    └── 12 DP 2D + Knapsack
      │
-     ├── 15 Greedy ◄── 可獨立學習，但建議在 DP 之後
+     ├── 14 Greedy ◄── 可獨立學習，但建議在 DP 之後
      │
-     └── 18 Sort + Bit ◄── 獨立主題，穿插學習
+     └── 17 Sort + Bit ◄── 獨立主題，穿插學習
 ```
 
 ### 嚴格的先修關係（必須遵守）
@@ -123,10 +173,15 @@ Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
 | 08 Tree BFS + BST | 07 Tree DFS |
 | 09 Graph DFS / BFS | 07 Tree DFS + 08 Tree BFS |
 | 10 TopSort + UnionFind | 09 Graph DFS / BFS |
-| 11 Shortest Path | 09 Graph DFS / BFS |
-| 13 DP 2D | 12 DP 1D |
-| 14 Backtracking | 07 Tree DFS |
-| 17 Trie | 03 HashMap |
+| 12 DP 2D | 11 DP 1D |
+| 13 Backtracking | 07 Tree DFS |
+| 16 Trie | 03 HashMap |
+
+### 建議的學習搭配
+
+每學完一個 `.py` 檔案，搭配閱讀對應的 `_教學.md` 檔案加深理解。
+進入 Phase 3 後，搭配閱讀 18-20 情境解題地圖，建立「問題→算法」的直覺。
+面試前衝刺，搭配 21-32 進階實戰指南。
 
 ---
 
@@ -139,9 +194,9 @@ Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
 | 週次 | 內容 | 每日題數 | 重點 |
 |------|------|---------|------|
 | Week 1 | 00 + 01 + 02 + 03 + 04 + 05 | 3-4 題/天 | 打穩 Array/String/HashMap 基礎 |
-| Week 2 | 06 + 07 + 08 + 12 + 15 + 16 | 3-4 題/天 | Binary Search + Tree + DP 入門 |
-| Week 3 | 09 + 10 + 13 + 14 | 2-3 題/天 | Graph + DP 進階 + Backtracking |
-| Week 4 | 11 + 17 + 18 + 模擬面試 | 2 題/天 + 模擬 | 補缺 + 限時練習 |
+| Week 2 | 06 + 07 + 08 + 11 + 14 + 15 | 3-4 題/天 | Binary Search + Tree + DP 入門 |
+| Week 3 | 09 + 10 + 12 + 13 | 2-3 題/天 | Graph + DP 進階 + Backtracking |
+| Week 4 | 16 + 17 + 29 模擬面試 | 2 題/天 + 模擬 | 補缺 + 限時練習 |
 
 ### 8 週穩健版（每天 2-3 小時）
 
@@ -153,10 +208,10 @@ Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
 | Week 2 | 02 Sliding Window + 03 HashMap | 2 題/天 |
 | Week 3 | 04 Stack/Queue + 05 Linked List + 06 Binary Search | 2-3 題/天 |
 | Week 4 | 07 Tree DFS + 08 Tree BFS/BST | 2-3 題/天 |
-| Week 5 | 09 Graph + 10 TopSort/UnionFind | 2 題/天 |
-| Week 6 | 12 DP 1D + 13 DP 2D/Knapsack | 2 題/天 |
-| Week 7 | 14 Backtracking + 15 Greedy + 16 Heap + 17 Trie + 18 Sort/Bit | 2-3 題/天 |
-| Week 8 | 全面複習 + 模擬面試（每天一場 45 分鐘模擬） | 2 題 + 模擬 |
+| Week 5 | 09 Graph + 10 TopSort/UnionFind/Dijkstra | 2 題/天 |
+| Week 6 | 11 DP 1D + 12 DP 2D/Knapsack | 2 題/天 |
+| Week 7 | 13 Backtracking + 14 Greedy + 15 Heap + 16 Trie + 17 Sort/Bit | 2-3 題/天 |
+| Week 8 | 18-20 情境地圖 + 29 模擬面試（每天一場 45 分鐘模擬） | 2 題 + 模擬 |
 
 ### 12 週從容版（每天 1.5-2 小時）
 
@@ -169,12 +224,12 @@ Phase 3: Advanced（高階）          Phase 4: Mock Interview（模擬面試）
 | Week 4 | 03 HashMap + 04 Stack/Queue |
 | Week 5 | 05 Linked List + 06 Binary Search |
 | Week 6 | 07 Tree DFS + 08 Tree BFS/BST |
-| Week 7 | 09 Graph + 10 TopSort/UnionFind |
-| Week 8 | 11 Shortest Path |
-| Week 9 | 12 DP 1D |
-| Week 10 | 13 DP 2D + Knapsack |
-| Week 11 | 14 Backtracking + 15 Greedy + 16 Heap + 17 Trie + 18 Sort/Bit |
-| Week 12 | 模擬面試週（每天限時練 2 題 + 口述解法） |
+| Week 7 | 09 Graph + 10 TopSort/UnionFind/Dijkstra |
+| Week 8 | 11 DP 1D |
+| Week 9 | 12 DP 2D + Knapsack |
+| Week 10 | 13 Backtracking + 14 Greedy + 15 Heap + 16 Trie + 17 Sort/Bit |
+| Week 11 | 18-20 情境地圖 + 21-28 進階指南 |
+| Week 12 | 29 模擬面試 + 31 Hard拆解 + 32 設計題（每天限時練 2 題 + 口述） |
 
 ---
 
@@ -191,15 +246,15 @@ Google 面試 = 45 分鐘 = 5 分鐘寒暄 + 35 分鐘 Coding + 5 分鐘提問
 ├── 2. Tree / Graph ★★★★★（第二常見）
 │    → 07, 08, 09, 10
 ├── 3. Dynamic Programming ★★★★☆
-│    → 12, 13
+│    → 11, 12
 ├── 4. Binary Search 變形 ★★★★☆（愛考 search in rotated array 類型）
 │    → 06
 ├── 5. Backtracking ★★★☆☆
-│    → 14
+│    → 13
 ├── 6. System Design 相關的 Data Structure ★★★☆☆
-│    → 16 (Heap), 17 (Trie)
+│    → 15 (Heap), 16 (Trie), 32 (設計題)
 └── 7. Greedy + Math ★★☆☆☆
-     → 15
+     → 14
 ```
 
 **Google 高頻考題模式：**
@@ -217,19 +272,19 @@ Google 面試 = 45 分鐘 = 5 分鐘寒暄 + 35 分鐘 Coding + 5 分鐘提問
 ```
 NVIDIA 面試特色（偏向系統 + 算法結合）：
 ├── 1. Array / Matrix 操作 ★★★★★
-│    → 01, 13（矩陣 DP）
+│    → 01, 12（矩陣 DP）
 ├── 2. Graph 算法 ★★★★★（因為 GPU 計算圖）
-│    → 09, 10, 11
+│    → 09, 10
 ├── 3. Sorting + Searching ★★★★☆
-│    → 06, 18
+│    → 06, 17
 ├── 4. Bit Manipulation ★★★★☆（硬體相關職位必考）
-│    → 18
+│    → 17
 ├── 5. Dynamic Programming ★★★☆☆
-│    → 12, 13
+│    → 11, 12
 ├── 6. Linked List / Memory 操作 ★★★☆☆（考記憶體觀念）
 │    → 05
 └── 7. Heap / Priority Queue ★★★☆☆（Task Scheduling 相關）
-     → 16
+     → 15
 ```
 
 **NVIDIA 高頻考題模式：**
@@ -250,14 +305,14 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 | ★★★★★ | Binary Search | 06 | 8+ 題 |
 | ★★★★★ | Tree DFS / BFS | 07, 08 | 10+ 題 |
 | ★★★★★ | Graph BFS / DFS | 09 | 8+ 題 |
-| ★★★★☆ | Dynamic Programming | 12, 13 | 10+ 題 |
+| ★★★★☆ | Dynamic Programming | 11, 12 | 10+ 題 |
 | ★★★★☆ | Sliding Window | 02 | 5+ 題 |
 | ★★★☆☆ | Stack / Queue | 04 | 5+ 題 |
-| ★★★☆☆ | Backtracking | 14 | 5+ 題 |
-| ★★★☆☆ | Heap | 16 | 5+ 題 |
-| ★★☆☆☆ | Greedy | 15 | 3+ 題 |
-| ★★☆☆☆ | Trie | 17 | 3+ 題 |
-| ★★☆☆☆ | Sort + Bit | 18 | 5+ 題 |
+| ★★★☆☆ | Backtracking | 13 | 5+ 題 |
+| ★★★☆☆ | Heap | 15 | 5+ 題 |
+| ★★☆☆☆ | Greedy | 14 | 3+ 題 |
+| ★★☆☆☆ | Trie | 16 | 3+ 題 |
+| ★★☆☆☆ | Sort + Bit | 17 | 5+ 題 |
 
 ---
 
@@ -375,29 +430,18 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `10_Graph_TopSort_UnionFind.py` — Topological Sort + Union-Find
+### `10_Graph_TopSort_UnionFind.py` — Topological Sort + Union-Find + Dijkstra
 
 **核心概念**：
 - Topological Sort（Kahn's Algorithm / DFS-based）
 - Union-Find（Disjoint Set）with Path Compression + Union by Rank
-- 何時用 Topological Sort vs BFS vs Union-Find
+- Dijkstra 最短路徑算法
 
-**經典題目**：Course Schedule II, Alien Dictionary, Number of Connected Components, Redundant Connection
-
----
-
-### `11_Graph_Shortest_Path.py` — 最短路徑算法
-
-**核心概念**：
-- Dijkstra（非負權重）
-- Bellman-Ford（可處理負權重）
-- Floyd-Warshall（所有點對最短路徑）
-
-**經典題目**：Network Delay Time, Cheapest Flights Within K Stops, Path with Maximum Probability
+**經典題目**：Course Schedule II, Alien Dictionary, Number of Connected Components, Redundant Connection, Network Delay Time
 
 ---
 
-### `12_DP_1D.py` — Dynamic Programming 一維
+### `11_DP_1D.py` — Dynamic Programming 一維
 
 **核心概念**：
 - DP 的本質：重疊子問題 + 最優子結構
@@ -408,7 +452,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `13_DP_2D_Knapsack.py` — DP 二維 + Knapsack
+### `12_DP_2D_Knapsack.py` — DP 二維 + Knapsack
 
 **核心概念**：
 - 二維 DP 表格的填充方向
@@ -419,7 +463,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `14_Backtracking.py` — Backtracking
+### `13_Backtracking.py` — Backtracking
 
 **核心概念**：
 - Backtracking = DFS + 剪枝 (Pruning)
@@ -430,7 +474,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `15_Greedy.py` — Greedy 策略
+### `14_Greedy.py` — Greedy 策略
 
 **核心概念**：
 - Greedy 的適用條件：局部最優 → 全域最優
@@ -441,7 +485,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `16_Heap_Priority_Queue.py` — Heap / Priority Queue
+### `15_Heap_Priority_Queue.py` — Heap / Priority Queue
 
 **核心概念**：
 - Min-Heap vs Max-Heap
@@ -452,7 +496,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `17_Trie.py` — Trie (Prefix Tree)
+### `16_Trie.py` — Trie (Prefix Tree)
 
 **核心概念**：
 - Trie 的結構與實作
@@ -463,7 +507,7 @@ NVIDIA 面試特色（偏向系統 + 算法結合）：
 
 ---
 
-### `18_Sort_And_Bit.py` — Sorting + Bit Manipulation
+### `17_Sort_And_Bit.py` — Sorting + Bit Manipulation
 
 **核心概念**：
 - Quick Sort / Merge Sort / Counting Sort 原理
@@ -487,10 +531,12 @@ python 00_解題框架_總覽.py
 
 ### Step 2：按照路線圖順序閱讀 + 實作
 
-每個 `.py` 檔案都可以直接執行，會印出教學內容和範例。
-- 先**讀懂**每個 pattern 的解釋
-- 再到 LeetCode 上**實際寫**對應的題目
-- 卡住時回來看檔案裡的 step-by-step 範例
+每個主題有三層材料：
+1. **`.py` 檔案** — 直接 `python filename.py` 執行，看數值 trace
+2. **`_教學.md` 檔案** — 教科書級深度講解，含公式推導、2+ 範例、corner case
+3. **進階指南 (18-32)** — 情境地圖、模擬面試、Hard 拆解等
+
+學習流程：先讀 `.md` 教學 → 跑 `.py` 看 trace → 到 LeetCode 實際寫 → 卡住回來查
 
 ### Step 3：建立自己的錯題本
 
@@ -535,10 +581,18 @@ python 00_解題框架_總覽.py
 
 ## 總結
 
-本教材共 **19 個 Python 檔案**，涵蓋 LeetCode 面試所需的所有核心主題。每個檔案都是：
+本教材共 **51 個檔案、62,989 行**，涵蓋 LeetCode 面試所需的所有核心主題：
 
-- **可執行的** — `python filename.py` 直接跑
-- **有數值範例的** — 每個概念都用具體數字走一遍
-- **面試導向的** — 只教面試會考的，不浪費時間
+| 類別 | 檔案數 | 行數 | 說明 |
+|------|--------|------|------|
+| A. Python 程式碼 | 18 | 20,007 | 可直接執行，每題附 step-by-step 數值 trace |
+| B. 教學講義 | 17 | 23,446 | 教科書級，含公式推導、2+ 範例、corner case |
+| C. 情境解題地圖 | 3 | 3,088 | 管理顧問式：從問題情境→算法選擇 |
+| D. 進階實戰指南 | 12 | 15,904 | 模擬面試、Hard 拆解、模板速查等 |
+| README | 1 | 544 | 本檔 |
+| **合計** | **51** | **62,989** | |
+
+每個 `.py` 檔案：`python filename.py` 直接跑，用具體數字走一遍。
+每個 `.md` 檔案：從「不懂」到「懂」的完整教學，不跳步驟。
 
 祝準備順利，拿到 Google / NVIDIA offer!

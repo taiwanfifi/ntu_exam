@@ -24,66 +24,24 @@
 
 ## 1.1 從線性搜尋到二分搜尋
 
-**線性搜尋 Linear Search**：從頭掃到尾，最壞情況看完所有 n 個元素。
-
 ```
-陣列: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
-找 target = 23
+Linear Search 線性搜尋: 一個一個看 → O(n)
+[2, 5, 8, 12, 16, 23, ...] target=23 → 看了 6 次才找到
 
-Step 1: 看 index 0 → 2  ≠ 23
-Step 2: 看 index 1 → 5  ≠ 23
-Step 3: 看 index 2 → 8  ≠ 23
-Step 4: 看 index 3 → 12 ≠ 23
-Step 5: 看 index 4 → 16 ≠ 23
-Step 6: 看 index 5 → 23 == 23 ✓ 找到！
-
-最壞: n 步 → O(n)
-```
-
-**二分搜尋 Binary Search**：每一步砍掉一半，只需 log2(n) 步。
-
-```
-陣列: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
-找 target = 23
-
-Step 1: 看中間 index 4 → 16 < 23 → 砍掉左半邊
-        剩下: [23, 38, 56, 72, 91]
-
-Step 2: 看中間 index 7 → 56 > 23 → 砍掉右半邊
-        剩下: [23, 38]
-
-Step 3: 看中間 index 5 → 23 == 23 ✓ 找到！
-
-只用 3 步！
+Binary Search 二分搜尋: 每次砍一半 → O(log n)
+[2, 5, 8, 12, 16, 23, 38, 56, 72, 91] target=23
+Step 1: 看 index 4 → 16 < 23 → 砍掉左半 → 剩 [23, 38, 56, 72, 91]
+Step 2: 看 index 7 → 56 > 23 → 砍掉右半 → 剩 [23, 38]
+Step 3: 看 index 5 → 23 == 23 ✓ 只用 3 步！
 ```
 
 ## 1.2 為什麼是 O(log n)？決策樹的直覺
 
-每一步把搜尋範圍砍一半，就像一棵二元樹：
+每一步把搜尋範圍砍一半 → 幾步後剩 1 個？
 
 ```
-                    n 個元素
-                   /        \
-              n/2             n/2          ← 第 1 步後剩 n/2
-             /   \           /   \
-          n/4    n/4      n/4    n/4       ← 第 2 步後剩 n/4
-          ...    ...      ...    ...
-            1      1        1      1       ← 第 k 步後剩 1
-```
-
-**數學推導**：
-
-```
-起始: n 個元素
-第 1 步後: n / 2
-第 2 步後: n / 4
-第 3 步後: n / 8
-...
-第 k 步後: n / 2^k
-
-當 n / 2^k = 1 時搜尋結束
-→ 2^k = n
-→ k = log₂(n)
+起始: n 個元素 → 第1步: n/2 → 第2步: n/4 → ... → 第k步: n/2^k
+當 n/2^k = 1 → k = log₂(n)
 ```
 
 **實際數字感受**：
@@ -102,46 +60,25 @@ log₂(10^6) = 6 × log₂(10) ≈ 6 × 3.322 = 19.93 ≈ 20 步
 **面試中記住**：n = 10^9 時，O(n) 會 TLE，O(log n) 只要約 30 步。
 看到搜尋範圍很大 (10^9) + 有單調性 → 幾乎一定是二分搜尋！
 
-## 1.3 前提條件：搜尋空間必須具有「單調性 Monotonic Property」
+## 1.3 前提條件：單調性 (Monotonic Property)
 
-二分搜尋能用的**充分條件**：存在一個判斷函式 f(x)，使得
-
-```
-搜尋空間:  ... T T T T F F F F ...
-                     ↑
-               找這個分界點
-
-或者
-
-搜尋空間:  ... F F F F T T T T ...
-                     ↑
-               找這個分界點
-```
-
-重點：不一定要「排序好的陣列」！只要搜尋空間能分成「左邊全部滿足 / 右邊全部不滿足」就行。
-
-## 1.4 ASCII 圖示：搜尋範圍的縮小過程
+二分搜尋能用的條件：存在一個判斷函式，使得搜尋空間可以分成兩段：
 
 ```
-找 target = 23 在 [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]
+... F F F F T T T T ...    (或反過來 T T T F F F)
+            ↑ 找這個分界點
+```
 
-初始:
-|<==================== 搜尋範圍 ====================>|
- 2    5    8    12   16   23   38   56   72   91
-[0]  [1]  [2]  [3]  [4]  [5]  [6]  [7]  [8]  [9]
-                          ↑mid=4, nums[4]=16 < 23
+重點：不一定要「排序好的陣列」！只要能分成左右兩段即可。
 
-第一步後 (左半砍掉):
-                               |<== 搜尋範圍 ==>|
- 2    5    8    12   16   23   38   56   72   91
-                         [5]  [6]  [7]  [8]  [9]
-                                    ↑mid=7, nums[7]=56 > 23
+## 1.4 搜尋範圍縮小的視覺化
 
-第二步後 (右半砍掉):
-                          |<= 範圍 =>|
- 2    5    8    12   16   23   38   56   72   91
-                         [5]  [6]
-                          ↑mid=5, nums[5]=23 == 23 ✓
+```
+nums = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], target = 23
+
+初始: |<=========== 搜尋範圍 ===========>|   mid=4, 16<23
+之後:                     |<=== 範圍 ===>|   mid=7, 56>23
+之後:                     |<= 範圍 =>|       mid=5, 23==23 ✓
 ```
 
 ---
@@ -181,19 +118,12 @@ def binary_search_t1(nums, target):
 | 縮小範圍 | `left = mid + 1` 或 `right = mid - 1`（mid 已經比過，要排除） |
 | 適用場景 | 找確切值（exact match） |
 
-### 為什麼 `mid = left + (right - left) // 2` 而不是 `(left + right) // 2`？
+### 防溢位：`mid = left + (right - left) // 2`
 
 ```
-假設 left = 2,000,000,000   right = 2,000,000,000
-left + right = 4,000,000,000 > INT_MAX (2^31 - 1 = 2,147,483,647)
-→ 整數溢位 (Integer Overflow)！
-
-用 left + (right - left) // 2:
-right - left = 0
-left + 0 = 2,000,000,000 ✓ 不溢位
-
-Python 有無限精度整數不會溢位，但 C++/Java 會！
-面試時用防溢位寫法展示你的細心。
+(left + right) 可能超過 INT_MAX (2^31-1)，C++/Java 會溢位！
+left + (right - left) // 2 數學等價但不溢位。
+Python 不會溢位，但面試用這個寫法展示細心。
 ```
 
 ### Example 1: 找到 target
@@ -338,18 +268,8 @@ def right_bound(nums, target):
 ### 左邊界 vs 右邊界的核心差異
 
 ```
-nums = [1, 2, 2, 2, 3]
-
-找左邊界 (leftmost 2):
-  目標: 找「第一個 >= 2 的位置」
-  條件: nums[mid] < 2 → left = mid + 1 (太小，丟掉)
-        nums[mid] >= 2 → right = mid   (可能是答案，保留)
-
-找右邊界 (rightmost 2):
-  目標: 找「最後一個 <= 2 的位置」
-  條件: nums[mid] <= 2 → left = mid + 1 (可能還有更右的，繼續)
-        nums[mid] > 2  → right = mid   (太大，丟掉)
-  返回 left - 1 (因為 left 指向「第一個 > target 的位置」)
+左邊界: 找「第一個 >= target」 → mid < target 就丟, 否則保留(right=mid)
+右邊界: 找「最後一個 <= target」→ mid <= target 就繼續(left=mid+1), return left-1
 ```
 
 ### Example 1: 找左邊界 (leftmost 2)
@@ -568,48 +488,13 @@ return -1 (沒找到)
 | **適用** | 找確切值 | 找邊界 | 任何(防死迴圈) |
 | **死迴圈風險** | 無 | 中（注意 mid 計算） | 無 |
 
-### 同一題用三種模板解 — LC 704 Binary Search
-
-```python
-# 題目: 在排序陣列中找 target，找到回傳 index，沒找到回傳 -1
-# nums = [1, 3, 5, 7, 9], target = 5
-
-# --- Template 1 ---
-left, right = 0, 4          # [0, 4] 閉區間
-while left <= right:
-    mid = left + (right - left) // 2
-    if nums[mid] == 5: return mid
-    elif nums[mid] < 5: left = mid + 1
-    else: right = mid - 1
-
-# --- Template 2 ---
-left, right = 0, 5          # [0, 5) 半開區間
-while left < right:
-    mid = left + (right - left) // 2
-    if nums[mid] < 5: left = mid + 1
-    else: right = mid
-# 結束時 left == right，檢查 nums[left] == 5?
-
-# --- Template 3 ---
-left, right = 0, 4
-while left + 1 < right:
-    mid = left + (right - left) // 2
-    if nums[mid] < 5: left = mid
-    elif nums[mid] > 5: right = mid
-    else: return mid         # 或 left/right = mid
-# 結束後檢查 nums[left] 和 nums[right]
-```
-
-### 建議
+### 建議：面試時怎麼選？
 
 ```
-面試時的選擇策略:
+找確切值           → Template 1 (最直覺)
+找邊界 / 插入位置  → Template 2 (最常用，Google 最愛考)
+怕死迴圈           → Template 3 (最安全)
 
-1. 找確切值 → Template 1 (最直覺)
-2. 找左邊界 / 右邊界 / 插入位置 → Template 2 (最常用)
-3. 不確定邊界怎麼處理、怕死迴圈 → Template 3 (最安全)
-
-Google 面試最常考: Template 2 的邊界變形
 建議: Template 1 + Template 2 都要滾瓜爛熟
 ```
 
@@ -828,58 +713,25 @@ findRight returns 1 - 1 = 0
 原始排序陣列旋轉後，變成兩段各自排序的子陣列：
 
 ```
-原始:  [0, 1, 2, 3, 4, 5, 6, 7]
-
-旋轉 4 次:
-       [4, 5, 6, 7, 0, 1, 2, 3]
-        ← 遞增 →  ← 遞增 →
-        高段部分    低段部分
-
-圖形化 (值 vs index):
-
+原始: [0,1,2,3,4,5,6,7]  →  旋轉: [4,5,6,7,0,1,2,3]
+                                    ←遞增→  ←遞增→
 值
-7 |         *
-6 |      *
-5 |   *
-4 | *
-3 |                        *
-2 |                     *
-1 |                  *
-0 |               *
-  +--+--+--+--+--+--+--+--
-    0  1  2  3  4  5  6  7  index
-
-  看起來像一座「山」→ 先上升，突然下降，再上升
+7 |      *                  看起來像一座「山」
+6 |   *                     先上升，突然下降，再上升
+5 |*
+4 |                  *
+3 |               *
+  +--+--+--+--+--+--+--
+   0  1  2  3  4  5  6
 ```
 
-**關鍵觀察**：`mid` 切一刀，左半 `[left, mid]` 和右半 `[mid, right]` 至少有一半是排序的！
-
-```
-情況 A: mid 在高段          情況 B: mid 在低段
-  *                              *
- * *                            * *
-*   *                          *   *
-     * ← mid 在這裡                  * ← mid 在這裡
-      *                              *
-       *                               *
-左半排序 ✓, 右半不確定      左半不確定, 右半排序 ✓
-```
+**關鍵觀察**：mid 切一刀，左半和右半**至少有一半是排序的**！
 
 ## 4.2 Search in Rotated Sorted Array (LC 33)
 
 **題目**：在旋轉排序陣列中搜尋 target，找到回傳 index，沒找到回傳 -1。陣列無重複。
 
-**決策邏輯**：
-
-```
-1. 找 mid
-2. 判斷哪半邊是排序的:
-   - if nums[left] <= nums[mid] → 左半排序
-   - else → 右半排序
-3. 判斷 target 是否在排序的那半邊:
-   - 如果在 → 搜尋那半邊
-   - 如果不在 → 搜尋另一半邊
-```
+**決策邏輯**：找 mid → 哪半排序？(`nums[left] <= nums[mid]` 則左半排序) → target 在排序的那半嗎？
 
 ```python
 def search(nums, target):
@@ -988,12 +840,9 @@ left = 7 > right = 6 → return -1 ✓ (3 不在陣列中)
 
 **題目**：找旋轉排序陣列中的最小值。無重複。
 
-**核心觀察**：最小值是「斷裂點」。用 `nums[mid]` 跟 `nums[right]` 比較：
-
-```
-如果 nums[mid] > nums[right] → 最小值在右半邊 (mid 在高段)
-如果 nums[mid] <= nums[right] → 最小值在左半邊 (包含 mid)
-```
+**核心觀察**：最小值在「斷裂點」。比較 `nums[mid]` 和 `nums[right]`：
+- `nums[mid] > nums[right]` → 最小值在右半 → `left = mid + 1`
+- `nums[mid] <= nums[right]` → 最小值在左半(含 mid) → `right = mid`
 
 ```python
 def findMin(nums):
@@ -1074,64 +923,31 @@ left = 0, right = 0 → return nums[0] = 1 ✓
 
 ## 5.1 概念：在答案空間上做二分搜尋
 
-前面的二分搜尋都是「在陣列上搜尋」。答案二分是另一個維度：
-
 ```
-傳統二分: 在 nums 裡找 target
-          搜尋空間 = 陣列的 index
-
-答案二分: 答案在某個範圍 [lo, hi] 內
-          搜尋空間 = 答案的可能值
-          用 check(mid) 判斷 mid 是否可行
+傳統二分: 在陣列上搜尋 → 搜尋空間 = index
+答案二分: 在數值範圍上搜尋 → 搜尋空間 = 答案的可能值
 ```
 
-**框架**：
+**框架** (Template 2 變形)：
 
 ```python
 def binary_search_on_answer():
-    lo, hi = min_possible_answer, max_possible_answer
-
+    lo, hi = min_possible, max_possible
     while lo < hi:
         mid = lo + (hi - lo) // 2
-
-        if check(mid):     # mid 可行嗎?
-            hi = mid        # 可行 → 試試更小的 (找最小可行答案)
-        else:
-            lo = mid + 1    # 不可行 → 要更大
-
+        if check(mid):   hi = mid      # 可行 → 試更小的
+        else:            lo = mid + 1   # 不可行 → 要更大
     return lo
 
-def check(mid):
-    # 根據題意，判斷 mid 是否是可行的答案
-    # 回傳 True / False
-    pass
-```
-
-**關鍵**：check(mid) 必須具有單調性！
-
-```
-答案空間:  [lo .................... hi]
-check():    F  F  F  F  T  T  T  T  T
-                        ↑
-                  找這個分界點 = 最小可行答案
+# check(mid) 必須有單調性: F F F F T T T T → 找分界點
 ```
 
 ## 5.2 Koko Eating Bananas (LC 875)
 
 **題目**：Koko 有 n 堆香蕉 `piles[i]`。她每小時吃 speed 根。如果那堆不夠 speed 根，她吃完那堆就停下等下一小時。守衛 h 小時後回來。求最小的 speed 使得 Koko 能在 h 小時內吃完。
 
-**分析**：
-
-```
-speed 太小 → 來不及吃完 → check = False
-speed 太大 → 可以吃完但不是最小 → check = True
-speed 剛好 → 臨界點 → 這是我們要找的！
-
-搜尋空間: speed ∈ [1, max(piles)]
-check(speed): 以 speed 的速度，能在 h 小時內吃完嗎？
-  total_hours = sum(ceil(pile / speed) for pile in piles)
-  return total_hours <= h
-```
+**分析**：搜尋空間 speed in [1, max(piles)]。check(speed): `sum(ceil(p/speed)) <= h`？
+speed 太小 → 來不及(F)；speed 夠大 → 可以(T)。找最小的 T。
 
 ```python
 import math
@@ -1255,18 +1071,8 @@ lo=30, hi=30 → return 30
 
 **題目**：將陣列分成 k 個非空連續子陣列，使得這 k 個子陣列的「最大和」最小化。
 
-**分析**：
-
-```
-直覺: 把「最大子陣列和」當作答案來二分搜尋！
-
-搜尋空間: answer ∈ [max(nums), sum(nums)]
-  - 最小可能: 每個元素自己一組，最大和 = max(nums)
-  - 最大可能: 全部一組，最大和 = sum(nums)
-
-check(max_sum): 限制每組和 <= max_sum，能分成 <= k 組嗎?
-  - 貪心法: 從左到右累加，超過 max_sum 就開新一組
-```
+**分析**：把「最大子陣列和」當作答案來二分。搜尋空間: `[max(nums), sum(nums)]`。
+check(max_sum): 限制每組和 <= max_sum，貪心法從左到右累加，超過就開新組，看能否 <= k 組。
 
 ```python
 def splitArray(nums, k):
@@ -1504,44 +1310,21 @@ left=6 > right=5 → return False ✓ (13 不在矩陣中)
 
 ## 6.2 Search a 2D Matrix II (LC 240) — 階梯法
 
-**題目**：m x n 矩陣，每行遞增，每列遞增（但行首不一定大於上一行行尾）。
+**題目**：m x n 矩陣，每行遞增，每列遞增（行首不一定大於上一行行尾，不能攤平成 1D）。
 
-```
-matrix = [[1,  4,  7, 11, 15],
-          [2,  5,  8, 12, 19],
-          [3,  6,  9, 16, 22],
-          [10,13, 14, 17, 24],
-          [18,21, 23, 26, 30]]
-
-注意: 5 > 4 但 2 < 4，所以不能攤平成 1D！
-```
-
-**核心觀察**：從右上角出發（或左下角），像走樓梯一樣搜尋。
-
-```
-從右上角 (row=0, col=n-1) 出發:
-- 如果 matrix[row][col] == target → 找到！
-- 如果 matrix[row][col] > target → 往左走 (col--)
-    (當前值太大，同一列下面只會更大，所以排除整列)
-- 如果 matrix[row][col] < target → 往下走 (row++)
-    (當前值太小，同一行左邊只會更小，所以排除整行)
-
-每一步排除一行或一列 → O(m + n)
-```
+**核心觀察**：從右上角出發，像走樓梯：
+- `val > target` → 往左 (col--)，排除整列
+- `val < target` → 往下 (row++)，排除整行
+- 每步排除一行或一列 → O(m + n)
 
 ```python
 def searchMatrixII(matrix, target):
     m, n = len(matrix), len(matrix[0])
     row, col = 0, n - 1    # 從右上角出發
-
     while row < m and col >= 0:
-        if matrix[row][col] == target:
-            return True
-        elif matrix[row][col] > target:
-            col -= 1        # 往左（排除一列）
-        else:
-            row += 1        # 往下（排除一行）
-
+        if matrix[row][col] == target:   return True
+        elif matrix[row][col] > target:  col -= 1   # 往左（排除一列）
+        else:                            row += 1   # 往下（排除一行）
     return False
 ```
 
@@ -1554,68 +1337,25 @@ matrix = [[ 1,  4,  7, 11, 15],
           [10, 13, 14, 17, 24],
           [18, 21, 23, 26, 30]]
 
-起點: row=0, col=4 → matrix[0][4] = 15
-
---- Step 1 ---
-(0,4) = 15 > 5 → 往左 col=3
-
-  [ 1,  4,  7, [11], 15]    ← 排除 col=4
-     ...
-
---- Step 2 ---
-(0,3) = 11 > 5 → 往左 col=2
-
-  [ 1,  4, [ 7], 11, 15]    ← 排除 col=3
-
---- Step 3 ---
-(0,2) = 7 > 5 → 往左 col=1
-
-  [ 1, [ 4],  7, 11, 15]    ← 排除 col=2
-
---- Step 4 ---
-(0,1) = 4 < 5 → 往下 row=1
-
-  [ 1,  4, ...]              ← 排除 row=0
-  [ 2, [5], ...]
-
---- Step 5 ---
-(1,1) = 5 == 5 → return True ✓
-
-路徑視覺化 (用 * 標記走過的位置):
-  [ 1,  *,  *,  *, *→15]
-  [ 2, [5], 8, 12, 19]   ← 找到！
+從右上角出發 (0,4)=15:
+Step 1: 15 > 5  → 往左 (0,3)=11
+Step 2: 11 > 5  → 往左 (0,2)=7
+Step 3:  7 > 5  → 往左 (0,1)=4
+Step 4:  4 < 5  → 往下 (1,1)=5
+Step 5:  5 == 5 → return True ✓
 ```
 
 ### Example 2: target = 20
 
 ```
-matrix = [[ 1,  4,  7, 11, 15],
-          [ 2,  5,  8, 12, 19],
-          [ 3,  6,  9, 16, 22],
-          [10, 13, 14, 17, 24],
-          [18, 21, 23, 26, 30]]
+同一矩陣，從 (0,4)=15 出發:
+Step 1: 15<20 → 下 (1,4)=19    Step 2: 19<20 → 下 (2,4)=22
+Step 3: 22>20 → 左 (2,3)=16    Step 4: 16<20 → 下 (3,3)=17
+Step 5: 17<20 → 下 (4,3)=26    Step 6: 26>20 → 左 (4,2)=23
+Step 7: 23>20 → 左 (4,1)=21    Step 8: 21>20 → 左 (4,0)=18
+Step 9: 18<20 → 下 row=5 出界 → return False ✓
 
---- Step 1 --- (0,4)=15 < 20 → 往下 row=1
---- Step 2 --- (1,4)=19 < 20 → 往下 row=2
---- Step 3 --- (2,4)=22 > 20 → 往左 col=3
---- Step 4 --- (2,3)=16 < 20 → 往下 row=3
---- Step 5 --- (3,3)=17 < 20 → 往下 row=4
---- Step 6 --- (4,3)=26 > 20 → 往左 col=2
---- Step 7 --- (4,2)=23 > 20 → 往左 col=1
---- Step 8 --- (4,1)=21 > 20 → 往左 col=0
---- Step 9 --- (4,0)=18 < 20 → 往下 row=5
-
-row=5 >= m=5 → 超出矩陣 → return False ✓ (20 不在矩陣中)
-
-路徑:
-  [ 1,  4,  7, 11, *15]
-  [ 2,  5,  8, 12, *19]
-  [ 3,  6,  9, *16,*22]
-  [10, 13, 14, *17, 24]
-  [*18,*21,*23,*26, 30]
-                       ↓ 出界
-
-共 9 步 (m + n - 1 = 5 + 5 - 1 = 9，最壞情況)
+共 9 步 = m+n-1 = 最壞情況 O(m+n)
 ```
 
 ---
@@ -1656,21 +1396,10 @@ row=5 >= m=5 → 超出矩陣 → return False ✓ (20 不在矩陣中)
 ## 7.2 識別「答案二分」的信號
 
 ```
-看到以下關鍵字 → 很可能是答案二分:
-
-1. "最小化最大值" (minimize the maximum)
-   → LC 410 Split Array Largest Sum
-   → LC 1011 Capacity To Ship Packages Within D Days
-
-2. "最大化最小值" (maximize the minimum)
-   → LC 1552 Magnetic Force Between Two Balls
-
-3. "最少/最多需要多少" + 範圍很大 (10^9)
-   → LC 875 Koko Eating Bananas
-   → LC 1283 Find the Smallest Divisor
-
-4. 答案有上下界且具有單調性
-   → 答案越大越容易滿足 (或反過來)
+1. "最小化最大值" → LC 410, LC 1011
+2. "最大化最小值" → LC 1552
+3. "最少/最多需要多少" + 範圍很大(10^9) → LC 875, LC 1283
+4. 答案有上下界 + 單調性 (越大越容易滿足)
 ```
 
 ## 7.3 常見陷阱與除錯
@@ -1720,27 +1449,11 @@ nums[left] <= nums[mid]   (有等號！)
 ## 7.4 Whiteboard 面試策略
 
 ```
-Step 1: 確認問題 (1-2 min)
-  - 輸入是排序的嗎？有重複嗎？
-  - 要找什麼？確切值？邊界？最佳答案？
-  - 搜尋空間是什麼？陣列 index？數值範圍？
-
-Step 2: 選擇模板 (30 sec)
-  - 用決策樹選模板
-  - 跟面試官確認思路
-
-Step 3: 寫程式 (5-8 min)
-  - 先寫框架 (while 迴圈 + mid 計算)
-  - 再填條件 (if/else 的邏輯)
-  - 最後處理返回值
-
-Step 4: Trace 一個例子 (2-3 min)
-  - 用一個小例子手動跑一遍
-  - 確認邊界情況
-
-Step 5: 分析複雜度 (30 sec)
-  - 時間: O(log n) 或 O(n log n) (答案二分中 check 是 O(n))
-  - 空間: O(1)
+Step 1 (1-2min): 確認 — 排序? 重複? 找什麼? 搜尋空間?
+Step 2 (30sec):  選模板 → 跟面試官確認思路
+Step 3 (5-8min): 寫碼 — 先框架(while+mid) → 再填條件 → 返回值
+Step 4 (2-3min): 用小例子手動 trace + 確認邊界
+Step 5 (30sec):  複雜度: O(log n) 時間, O(1) 空間
 ```
 
 ## 7.5 複雜度速查表
@@ -1786,41 +1499,15 @@ Step 5: 分析複雜度 (30 sec)
 ## 附錄：全章節公式與模板速查
 
 ```
-╔═══════════════════════════════════════════════════════════╗
-║                 Binary Search 速查卡                      ║
-╠═══════════════════════════════════════════════════════════╣
-║                                                           ║
-║  防溢位 mid:  mid = left + (right - left) // 2            ║
-║                                                           ║
-║  Template 1 (找確切值):                                    ║
-║    while left <= right:                                   ║
-║      if nums[mid] == target: return mid                   ║
-║      elif nums[mid] < target: left = mid + 1              ║
-║      else: right = mid - 1                                ║
-║    return -1                                              ║
-║                                                           ║
-║  Template 2 (找邊界):                                      ║
-║    左邊界: while left < right:                             ║
-║      if nums[mid] < target: left = mid + 1                ║
-║      else: right = mid                                    ║
-║      return left                                          ║
-║                                                           ║
-║    右邊界: while left < right:                             ║
-║      if nums[mid] <= target: left = mid + 1               ║
-║      else: right = mid                                    ║
-║      return left - 1                                      ║
-║                                                           ║
-║  答案二分:                                                 ║
-║    while lo < hi:                                         ║
-║      if check(mid): hi = mid                              ║
-║      else: lo = mid + 1                                   ║
-║    return lo                                              ║
-║                                                           ║
-║  旋轉數組:                                                 ║
-║    if nums[left] <= nums[mid]: 左半排序                    ║
-║    else: 右半排序                                          ║
-║                                                           ║
-║  2D → 1D: row = index // cols, col = index % cols         ║
-║                                                           ║
-╚═══════════════════════════════════════════════════════════╝
+Binary Search 速查卡
+─────────────────────────────────────────────
+mid = left + (right - left) // 2
+
+T1 找確切值: while left<=right, return mid or -1
+T2 找左邊界: while left<right, nums[mid]<t → left=mid+1, else right=mid, return left
+T2 找右邊界: while left<right, nums[mid]<=t → left=mid+1, else right=mid, return left-1
+答案二分:    while lo<hi, check(mid)? hi=mid : lo=mid+1, return lo
+旋轉數組:    nums[left]<=nums[mid] → 左半排序
+2D→1D:      row = index // cols, col = index % cols
+─────────────────────────────────────────────
 ```

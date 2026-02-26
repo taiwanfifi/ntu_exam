@@ -204,9 +204,7 @@ is_empty = len(q) == 0  # False
 
 ### 題目
 
-給一個只包含 `(`, `)`, `{`, `}`, `[`, `]` 的字串，判斷括號是否合法。
-
-### 核心觀念
+給一個只包含 `(`, `)`, `{`, `}`, `[`, `]` 的字串，判斷括號是否合法。核心觀念：
 
 - 遇到**左括號** → push 進 stack
 - 遇到**右括號** → pop stack 頂端，檢查是否匹配
@@ -307,11 +305,7 @@ def isValid(s: str) -> bool:
 
 設計一個 stack，除了 push/pop/top 之外，還要支援 `getMin()` — 回傳目前 stack 中的最小值。**所有操作都要 O(1)**。
 
-### 核心觀念
-
-問題：一般 stack 找最小值需要 O(n) 遍歷。怎麼做到 O(1)？
-
-**答案：用一個輔助 stack（min_stack），同步記錄「到目前為止的最小值」。**
+**核心觀念**：用一個輔助 stack（min_stack），同步記錄「到目前為止的最小值」。
 
 ```
 main_stack:  每次 push/pop 元素
@@ -410,11 +404,8 @@ class MinStack:
 
 ### 什麼是 RPN（逆波蘭表示法）？
 
-一般數學式（中序 Infix）：`(2 + 1) * 3`
-RPN（後序 Postfix）：`2 1 + 3 *`
-
-**RPN 的好處：不需要括號，也不需要考慮運算子優先順序。**
-電腦用 stack 一遍掃過就能算完。
+一般數學式（中序 Infix）：`(2 + 1) * 3` → RPN（後序 Postfix）：`2 1 + 3 *`
+RPN 的好處：不需要括號，也不需要考慮優先順序。電腦用 stack 一遍掃過就能算完。
 
 ### 核心規則
 
@@ -946,26 +937,12 @@ i=6, cur_h=0（哨兵）:
 
 ### 面積計算詳細解說
 
-```
-pop idx=2（h=5）時：
-  右邊界 = i = 4（cur_h=2 比它矮，所以是右邊界）
-  左邊界 = stack[-1] = 1（pop 後 stack 頂，heights[1]=1 比它矮）
-  width = 4 - 1 - 1 = 2
-  也就是 index 2 和 3 這兩個位置
-
-  為什麼 index 3 可以包含？
-  因為 heights[3]=6 >= 5，所以高度 5 可以延伸到 index 3。
-  index 3 之前已經被 pop（因為 6>5），代表它更高，一定不會限制寬度。
-```
+pop idx=2（h=5）時：右邊界=i=4，左邊界=stack[-1]=1，width=4-1-1=2（index 2 和 3）。
+為什麼 index 3 可以包含？因為 heights[3]=6>=5，高度 5 可以延伸到 index 3。index 3 之前已被 pop（因為 6>5），代表它更高，不會限制寬度。
 
 ### Corner Cases
 
-```
-1. 全部相同 [3,3,3,3] → 面積 = 3*4 = 12
-2. 遞增 [1,2,3,4] → 哨兵觸發所有 pop
-3. 遞減 [4,3,2,1] → 每步都 pop
-4. 單一 bar [5] → 面積 = 5
-```
+全部相同 `[3,3,3,3]` → 3*4=12 | 遞增 `[1,2,3,4]` → 哨兵觸發所有 pop | 遞減 `[4,3,2,1]` → 每步都 pop | 單一 bar `[5]` → 5
 
 ### 程式碼
 
@@ -1498,26 +1475,10 @@ for i in range(n + 1):
 
 ## 6.5 面試 Tips
 
-```
-1. Stack 題目的通用模板：
-   - 決定 push 什麼（值？index？pair？）
-   - 決定何時 pop（匹配成功？遇到更大/更小？）
-   - 決定 pop 時做什麼計算
-
-2. Monotonic Stack 面試必問 follow-up：
-   Q: "Why is this O(n) and not O(n^2)?"
-   A: "Each element is pushed and popped at most once.
-       Total operations across all iterations = 2n = O(n)."
-
-3. Largest Rectangle in Histogram 延伸：
-   - LC 85 Maximal Rectangle（2D 版本，每一行做一次 histogram）
-   - LC 42 Trapping Rain Water（也可以用 monotonic stack）
-
-4. Debug 技巧：
-   - 一定要追蹤 stack 的完整狀態
-   - Monotonic stack 題目，先用小例子（2-3 個元素）手動模擬
-   - 注意 pop 的順序和邊界條件（stack 為空時怎麼辦？）
-```
+1. **Stack 題目通用模板**：決定 push 什麼（值/index/pair）→ 決定何時 pop → 決定 pop 時做什麼計算
+2. **Monotonic Stack 必問 follow-up**："Why O(n)?" → "Each element pushed and popped at most once. Total = 2n = O(n)."
+3. **LC 84 延伸**：LC 85 Maximal Rectangle（2D 版本）、LC 42 Trapping Rain Water
+4. **Debug 技巧**：追蹤完整 stack 狀態、先用 2-3 個元素手動模擬、注意 stack 為空的邊界
 
 ---
 

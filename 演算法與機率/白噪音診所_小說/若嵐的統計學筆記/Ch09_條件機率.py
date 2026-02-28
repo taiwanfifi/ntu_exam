@@ -92,7 +92,7 @@ ax1.text(7.6, 3.5, '獨立客戶\n（低風險）', ha='center', fontsize=8.5,
 
 # 條件機率標注
 prob_box = ('P(出事 | Resonance) ≈ 0.0025\n'
-            'P(出事 | 非 Resonance) ≈ 10⁻¹⁰\n\n'
+            'P(出事 | 非 Resonance) ≈ 10^(-10)\n\n'
             '差了 500 萬倍')
 ax1.text(5.0, 1.1, prob_box,
          ha='center', fontsize=9.5, color=AMBER, linespacing=1.6,
@@ -119,7 +119,7 @@ ax2.bar(x_pos, vals, color=colors_bar, alpha=0.82, width=0.45, zorder=3,
         edgecolor='#0c1018', linewidth=0.6)
 
 # 數值標注
-ax2.text(0, vals[0] * 3.5, f'≈ 10⁻¹⁰', ha='center', va='bottom',
+ax2.text(0, vals[0] * 3.5, '≈ 10^(-10)', ha='center', va='bottom',
          fontsize=10.5, color=RED, fontweight='bold')
 ax2.text(1, vals[1] * 1.8, f'≈ 0.0025', ha='center', va='bottom',
          fontsize=10.5, color=AMBER, fontweight='bold')

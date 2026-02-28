@@ -36,7 +36,7 @@ fig, (ax_left, ax_right) = plt.subplots(1, 2, figsize=(16, 7.5))
 fig.patch.set_facecolor(BG)
 
 # ── LEFT PANEL: Daily bar chart ──────────────────────────────────────────
-counts = [1, 2, 3, 2, 2, 1, 2, 1, 2, 1, 5, 0]
+counts = [2, 2, 3, 2, 2, 2, 2, 1, 3, 2, 5, 1]
 days = list(range(1, 13))
 lambda0 = 0.95  # baseline
 

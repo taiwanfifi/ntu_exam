@@ -151,7 +151,7 @@ ax2.text(chi2_obs + 0.15, stats.chi2.pdf(chi2_obs, df) + 0.012,
                    edgecolor=RED, alpha=0.82, linewidth=0.9))
 
 # p 值標注
-p_val_str = 'p < 0.01\n（實際 p = 1.34×10⁻⁷）'
+p_val_str = 'p < 0.01\n（實際 p = 1.34×10^(-7)）'
 ax2.text(12, 0.25, p_val_str, ha='center', fontsize=10.5,
          color=RED, fontweight='bold', linespacing=1.5,
          bbox=dict(boxstyle='round,pad=0.55', facecolor='#1a0a0a',

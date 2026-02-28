@@ -65,7 +65,7 @@ for i, (ki, pi) in enumerate(zip(k[:5], pmf[:5])):
 
 # 文字框說明 P(X≥30)
 prob_ge30 = (1 - p) ** 29
-box_text = (f'P(X ≥ 30) = (0.7)²⁹\n'
+box_text = (f'P(X >= 30) = (0.7)^29\n'
             f'≈ {prob_ge30:.4f}\n'
             f'柏宇：連續 30 天無間斷')
 ax1.text(8.5, 0.22,
